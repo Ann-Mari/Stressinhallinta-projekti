@@ -1,5 +1,5 @@
 <?php
-include_once("config/https.php");
+//include_once("config/https.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

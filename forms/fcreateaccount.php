@@ -15,8 +15,8 @@
    Salasanan vahvistaminen
   <br />  <input type="password" name="givenPasswordVerify" placeholder="salasana uudestaan" maxlength="40"/>
   </p><p>
-  <br />  <input type="submit" name="submitUser" value="Submit"/>
-          <input type="reset"  value="Reset"/>
+  <br />  <input type="submit" name="submitUser" value="Hyväksy"/>
+          <input type="reset"  value="Tyhjennä"/>
   </p>
   </form>
   </fieldset> 

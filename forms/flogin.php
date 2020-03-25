@@ -7,9 +7,9 @@
   Salasana 
   <br />  <input type="password" name="givenPassword" placeholder="salasana min 8 merkkiä" maxlength="40"/>
   </p><p>
-  <br />  <input type="submit" name="submitUser" value="Submit"/>
-          <input type="reset"  value="Reset"/>
-          <input type="submit" name="submitBack" value="Give Up"/>
+  <br />  <input type="submit" name="submitUser" value="Hyväksy"/>
+          <input type="reset"  value="Tyhjennä"/>
+          <input type="submit" name="submitBack" value="Palaa etusivulle"/>
   </p>
 </form>
 </fieldset>

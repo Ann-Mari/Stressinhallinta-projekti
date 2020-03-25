@@ -60,6 +60,7 @@ function resetTimer(){
   startTimerButton.style.cursor = "pointer";
   pauseTimerButton.style.cursor = "auto";
 }
+
 function getShowTime(){
   updatedTime = new Date().getTime();
   if (savedTime){
@@ -77,4 +78,17 @@ hours = (hours < 10) ? "0" + hours : hours;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
   milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
   timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+}
+function saveExercise(){
+
+  var hours = Math.floor((savedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((savedTime % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((savedTime % (1000 * 60)) / 1000);
+  var milliseconds = Math.floor((savedTime % (1000 * 60)) / 100);
+hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+  milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+  console.log(hours + ':' + minutes + ':' + seconds + ':' + milliseconds);
+  
 }

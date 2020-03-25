@@ -1,6 +1,4 @@
-<?php
-include_once("config/https.php");
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +32,35 @@ include_once("config/https.php");
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <nav role="navigation">
+  <div id="menuToggle">
+    <!--
+      Piilotettu checkbox käytössä, käytä :checked valintaa 
+    -->
+    <input type="checkbox" />
+    
+    <!--
+   Elämänlaadullisia span tagei
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+      Navigaatio menun linkit
+      TOIMINNOT TULOSSA
+    -->
+    <ul id="menu">
+      <a href="#"><li>Oma profiili</li></a>
+      <a href="#"><li>Päiväkirja</li></a>
+      <a href="#"><li>Vie data</li></a>
+      <a href="#"><li>Harjoitusohjeet</li></a>
+      <a href="#"><li>Kirjaudu ulos</li></a>
+    </ul>
+  </div>
+</nav>
+
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">

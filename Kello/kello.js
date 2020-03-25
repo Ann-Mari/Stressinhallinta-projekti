@@ -60,6 +60,7 @@ function resetTimer(){
   startTimerButton.style.cursor = "pointer";
   pauseTimerButton.style.cursor = "auto";
 }
+
 function getShowTime(){
   updatedTime = new Date().getTime();
   if (savedTime){
@@ -77,4 +78,9 @@ hours = (hours < 10) ? "0" + hours : hours;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
   milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
   timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+}
+function saveExercise(){
+
+  console.log(savedTime);
+  
 }

@@ -306,14 +306,14 @@ ______________________________*/
 #menuToggle a
 {
   text-decoration: none;
-  color: #FFC9C4;
+  color: #B37D78;
   
   transition: color 0.3s ease;
 }
 
 #menuToggle a:hover
 {
-  color: #B37D78;
+  color: #4D3533;
 }
 
 
@@ -405,7 +405,7 @@ ______________________________*/
   padding: 50px;
   padding-top: 125px;
   
-  background: rgba(196, 255, 222, 0.7);
+  background: rgba(196, 255, 222, 0.3);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* Korjaa eräiden selainten tekstin vilkkumista */

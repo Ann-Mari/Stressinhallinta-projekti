@@ -51,7 +51,7 @@ function resetTimer(){
   difference = 0;
   paused = 0;
   running = 0;
-  timerDisplay.innerHTML = 'Start Timer!';
+  timerDisplay.innerHTML = 'Aloita!';
   timerDisplay.style.background = "#A90000";
   timerDisplay.style.color = "#fff";
   timerDisplay.style.cursor = "pointer";

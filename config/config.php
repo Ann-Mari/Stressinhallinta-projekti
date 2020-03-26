@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> c012ab29bb214b47c5803fa5764b28fb241387c3
 <?php
 //Tietokanta
 $user = 'annmarir';        //Käytäjänimi 
@@ -23,4 +26,7 @@ try {     //Avataan yhteys tietokantaan ($DBH on nyt  yhteysolio, nimi vapaasti 
     file_put_contents('log/DBErrors.txt', 'Connection: '.$e->getMessage()."\n", FILE_APPEND);
 } 
 ?>
+<<<<<<< HEAD
 >>>>>>> Ann-Marin-branch
+=======
+>>>>>>> c012ab29bb214b47c5803fa5764b28fb241387c3

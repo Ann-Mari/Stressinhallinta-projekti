@@ -1,34 +1,13 @@
+<?php
+include("config/config.php");
+include("config/https.php");
+?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<?php
+include("includes/iheader.php");
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Stressinhallinta</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+?>
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
-</head>
-<body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -52,11 +31,11 @@
       TOIMINNOT TULOSSA
     -->
     <ul id="menu">
-      <a href="#"><li>Oma profiili</li></a>
-      <a href="#"><li>Päiväkirja</li></a>
+      <a href="userProfile"><li>Oma profiili</li></a>
+      <a href="userDiary.php"><li>Päiväkirja</li></a>
       <a href="#"><li>Vie data</li></a>
-      <a href="#"><li>Harjoitusohjeet</li></a>
-      <a href="#"><li>Kirjaudu ulos</li></a>
+      <a href="excercises.php"><li>Harjoitusohjeet</li></a>
+      <a href="logout.php"><li>Kirjaudu ulos</li></a>
     </ul>
   </div>
 </nav>

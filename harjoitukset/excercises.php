@@ -1,12 +1,13 @@
 <?php
-//include("config/config.php");
-//include("config/https.php");
+include("config/config.php");
+include("config/https.php");
 ?>
 
-<!DOCTYPE html>
-<html>
+<?php
+include("includes/iheader.php");
 
-<body>
+?>
+
 <button type="button" id="btnKaikki" onclick="nextImage()">Näytä Kaikki</button>
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>

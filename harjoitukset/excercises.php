@@ -4,7 +4,7 @@ include("config/https.php");
 ?>
 
 <?php
-include("includes/iheader.php");
+include($_SERVER["DOCUMENT_ROOT"]."/includes/iheader.php");
 
 ?>
 

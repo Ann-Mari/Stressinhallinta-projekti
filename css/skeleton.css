@@ -328,14 +328,15 @@ ______________________________*/
   
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0; /* Piilotetaan vakio checkbox */
+  z-index: 2; /* indeksien avulla hampurilaisen päälle  */
   
   -webkit-touch-callout: none;
 }
 
 /*
  * Hampurilainen
+
  */
 #menuToggle span
 {
@@ -368,7 +369,7 @@ ______________________________*/
 }
 
 /* 
- * Käännetään hampurilainen ruksiksi
+ * Käännetään hampurilainen ruksiksi span tagei käytetty
  */
 #menuToggle input:checked ~ span
 {
@@ -395,7 +396,8 @@ ______________________________*/
 }
 
 /*
- * Absoluuttinen positio vasempaan laitaan
+ * Absoluuttinen positio vasempaan laitaan ja muut 
+ menun säädöt
  */
 #menu
 {

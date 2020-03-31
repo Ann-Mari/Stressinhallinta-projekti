@@ -1,10 +1,5 @@
 <?php
-include("config/config.php");
-include("config/https.php");
-?>
-
-<?php
-include("includes/iheader.php");
+include('./includes/iheader.php');
 
 ?>
 

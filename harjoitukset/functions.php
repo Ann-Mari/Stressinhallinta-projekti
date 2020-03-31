@@ -1,20 +1,21 @@
 <?
 
-function trainingText($trainingNumber) {
+function trainingText($liikunta) {
       
       
-    $treeniOhjeet = array(
+    $treeniLinkit = array(
 
-    "notkeuttaa keskivartaloa", 
-    "verrytellä kainalolihaksia", 
-    "vahvistaa Silmälihaksia", 
-    "lisätä laskentalihasten liikkuvuutta", 
-    "Notkistaa sellkaa tai vaihtoehtoisesti opettele kumartumaan", 
-    "Tehdä käsilläseisontaa, tai poistua kotoa",
-    "Maata hipihiljaa piikitettävänä");
+    "iwgWzOoJ1EI", 
+    "Qe-25gXKkdo", 
+    "mTlqAv2ApkE", 
+    "41Frx0YOGDM", 
+    "wsMvCuXETSU", 
+    "s-ZA5J67KJM",
+    "hpbVRzETA9E");
 
-    
-    return $treeniOhjeet[$trainingNumber-1];
-    
+    for ($i=0; $i<=$treeniLinkit; $i++){
+        echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/$treeniLinkit[$i]' frameborder='0' allowfullscreen></iframe>";
+    }
+    return $treeniLinkit[$liikunta];
 }
 ?>

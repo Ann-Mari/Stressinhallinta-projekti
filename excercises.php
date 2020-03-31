@@ -5,40 +5,28 @@ include('includes/iheader.php');
 
 ?>
 
-<button type="button" id="btnKaikki" onclick="nextImage()">Näytä Kaikki</button>
+<button type="button" id="btnKaikki" >Näytä Kaikki</button>
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
 <?php
 include_once("harjoitukset/functions.php");
 ?>
+
 <?php
- $liikunta = rand(1,4);
+ $liikunta = rand(1,7);
  $txtOhje = trainingText($liikunta);
 
- $fileA="kuvat/treeni$liikunta.jpg";
+ $fileA="<iframe width='560' height='315' src='https://www.youtube.com/embed/$liikunta' frameborder='0' allowfullscreen></iframe>";
 
 ?>
 <?php
 
-echo "Treeniohjeet : Tänään sinun tulee $txtOhje"
+echo "linkin loppu $txtOhje"
 
 ?>
 </br>
 
-<img class=main src=" <?php echo ("$fileA");?>"/>
-
-</br>
-<button onClick="history.go();"> REfresh Page</button>
-</br>
-
-
-<?php
-  for ($i=1; $i<=7; $i++){
-    ?>
-    <img class=mini src=" <?php echo("kuvat/treeni$i.jpg");?>"/>
-    <?php
-}
-?>
+<?php echo ("$fileA");?>
 
 
 </body>

@@ -9,10 +9,10 @@ function trainingText() {
 );
     while($i=0, $i<=$treeniOhjeet, ){
 
- echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/"$treeniOhjeet[$i]"' frameborder='0' allowfullscreen></iframe>";$i++
+ echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/"$treeniOhjeet[$i]"' frameborder='0' allowfullscreen></iframe>";$i++;
     }
 
-    <script>
+}
 console.log("scripti alkaa");
  $treeniOhjeet = array(
     "iwgWzOoJ1EI", 
@@ -29,7 +29,7 @@ function treenit(trainingText){
     $i++;
     }
 }      
-</script>
+
  
 
    

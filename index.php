@@ -18,8 +18,8 @@ include('./includes/inavindex.php');
         <h4>Basic Page</h4>
         <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
       </div>
-      <div id="kello" href="Kello/kello.php">
-          Tähän tulee sekunttikello lopullisessa versiossa, nyt vain linkki kellon nykyiseen toiminnallisuuteen.
+      <div id="kello">
+          Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
       </div>
       <div id="paivanHarjoitukset">
           Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.

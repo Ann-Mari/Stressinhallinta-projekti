@@ -30,6 +30,7 @@ include('./includes/inavindex.php');
         Lähtökohtana lomake:
 
         <?php
+        //haetaan tehty lomake forms kansiosta
         include('forms/fpaivanFiilis.php');
         ?>
 

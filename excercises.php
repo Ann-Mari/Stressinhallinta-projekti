@@ -14,7 +14,7 @@ include('./includes/inavindex.php');
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
 <?php
-//include_once("functions.php");
+//include_once("harjoituset/functions.php");
 ?>
 <!DOCTYPE html>
 <html>

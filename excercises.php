@@ -1,8 +1,18 @@
 
 <?php
-//include("config/config.php");
-//include("config/https.php");
+include('includes/iheader.php');
+include('./includes/inavindex.php');
+
 ?>
+
+<body>
+  
+<br>
+<br>
+<br>
+<button type="button" id="btnKaikki" onclick="nextImage()">Näytä Kaikki</button>
+<button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
+<button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
 <?php
 //include_once("functions.php");
 ?>

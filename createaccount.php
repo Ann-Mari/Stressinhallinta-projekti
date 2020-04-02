@@ -38,7 +38,7 @@ if(isset($_POST['submitUser'])){
     if($tulos[0] == 0){ //email ei ole käytössä
      $STH = $DBH->prepare("INSERT INTO Rekisteröinti (firstName, lastName, userEmail, userPwd) VALUES (:name, :name2, :email, :pwd);");
      $STH->execute($data);
-     header("Location: index.php"); //Palataan pääsivulle kirjautuneena
+     header("Location: personalinformation.php"); //Palataan pääsivulle kirjautuneena
     }else{
       $_SESSION['swarningInput']="Email is reserved";
     }

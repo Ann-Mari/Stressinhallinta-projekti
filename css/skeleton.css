@@ -306,14 +306,14 @@ ______________________________*/
 #menuToggle a
 {
   text-decoration: none;
-  color: #FFC9C4;
+  color: #B37D78;
   
   transition: color 0.3s ease;
 }
 
 #menuToggle a:hover
 {
-  color: #B37D78;
+  color: #4D3533;
 }
 
 
@@ -328,14 +328,15 @@ ______________________________*/
   
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0; /* Piilotetaan vakio checkbox */
+  z-index: 2; /* indeksien avulla hampurilaisen päälle  */
   
   -webkit-touch-callout: none;
 }
 
 /*
  * Hampurilainen
+
  */
 #menuToggle span
 {
@@ -368,7 +369,7 @@ ______________________________*/
 }
 
 /* 
- * Käännetään hampurilainen ruksiksi
+ * Käännetään hampurilainen ruksiksi span tagei käytetty
  */
 #menuToggle input:checked ~ span
 {
@@ -395,7 +396,8 @@ ______________________________*/
 }
 
 /*
- * Absoluuttinen positio vasempaan laitaan
+ * Absoluuttinen positio vasempaan laitaan ja muut 
+ menun säädöt
  */
 #menu
 {
@@ -405,7 +407,7 @@ ______________________________*/
   padding: 50px;
   padding-top: 125px;
   
-  background: rgba(196, 255, 222, 0.7);
+  background: rgba(196, 255, 222, 0.3);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* Korjaa eräiden selainten tekstin vilkkumista */

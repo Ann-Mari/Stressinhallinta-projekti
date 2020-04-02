@@ -1,30 +1,42 @@
+
 <?php
-include("config/config.php");
-include("config/https.php");
+include('includes/iheader.php');
+include('./includes/inavindex.php');
+
 ?>
 
+<body>
+  
+<br>
+<br>
+<br>
+<button type="button" id="btnKaikki" onclick="nextImage()">Näytä Kaikki</button>
+<button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
+<button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
+<?php
+//include_once("functions.php");
+?>
 <!DOCTYPE html>
 <html>
 
 <body>
-<?php
-//haettu pohja minun tekemästä lab4:sta
-//halutaan muuttaa käymään läpi harjoituslista ja hakee sieltä kaikki jooga treenit, 
-//laitetaan jokainen palautus omaan diviin, johon tulee youtubevideo
-$tuoteID=2;
-$kysely3 = $DBH->prepare("SELECT vk_tuotteet.nimi, vk_tuotteet.tuotekoodi FROM vk_tuotteet WHERE vk_tuotteet.tID = :haluttuID");
-
-$kysely3->bindParam(':haluttuID', $tuoteID);
-$kysely3->execute();
-$kysely3->setFetchMode(PDO::FETCH_OBJ);
-$ekaTulosOlio = $kysely3->fetch();   
-
-//Tuloksena on nyt vain vain yksi rivi (vain yksi tuote  tID:llä 2)
-
-echo ("<br>3. Haluttu tID = $tuoteID : " . $ekaTulosOlio->nimi .", tuotekoodi  " . $ekaTulosOlio->tuotekoodi );
-
-?>
-
+<button type="button" id="btnKaikki">Näytä Kaikki</button>
+<button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
+<button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
+<div>
+<iframe width='560' height='315' src='https://www.youtube.com/embed/iwgWzOoJ1EI' frameborder='0' allowfullscreen></iframe>
+</div>
+<div>
+<iframe width='560' height='315' src='https://www.youtube.com/embed/Qe-25gXKkdo' frameborder='0' allowfullscreen></iframe>
+</div>
+<div>
+    <iframe width='560' height='315' src='https://www.youtube.com/embed/mTlqAv2ApkE' frameborder='0' allowfullscreen></iframe></div>
+<div>
+    <iframe width='560' height='315' src='https://www.youtube.com/embed/41Frx0YOGDM' frameborder='0' allowfullscreen></iframe></div>
+<div>
+    <iframe width='560' height='315' src='https://www.youtube.com/embed/wsMvCuXETSU' frameborder='0' allowfullscreen></iframe></div>
+<div>
+    <iframe width='560' height='315' src='https://www.youtube.com/embed/s-ZA5J67KJM' frameborder='0' allowfullscreen></iframe></div>
 
 </body>
 </html>

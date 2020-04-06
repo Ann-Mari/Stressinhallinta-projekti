@@ -2,8 +2,9 @@
 <?php include("forms/flogin.php"); ?>
 
 <?php include("config/config.php");?>
-//Lähteenä: Lab6 ja Karin diat
+
 <?php
+//Lähteenä: Lab6 ja Karin diat
 //Lomakkeen submit painettu?
 if(isset($_POST['submitUser'])){
   //***Tarkistetaan email myös palvelimella

@@ -1,7 +1,8 @@
 <?php include("./includes/iheader.php");?>
 <?php include("forms/fcreateaccount.php");?>
-//Lähteenä: Lab6 pohjana ja Karin diat
+
 <?php
+//Lähteenä: Lab6 pohjana ja Karin diat
 //Lomakkeen submit painettu?
 if(isset($_POST['submitUser'])){
   //Tarkistetaan syötteet myös palvelimella

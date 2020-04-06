@@ -1,6 +1,6 @@
 <?php
-include("config/config.php");
-include("config/https.php");
+include('./config/config.php');
+include('./onfig/https.php');
 ?>
 
 <!DOCTYPE html>

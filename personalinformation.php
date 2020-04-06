@@ -1,7 +1,7 @@
-<?php include("includes/iheader.php");?>
+<?php include("./includes/iheader.php");?>
 <?php include("includes/personalnav.php");?>
 <?php include("forms/fpersonalinformation.php");?>
-
+//Lähteenä: Lab6 ja Lab5 sekä Karin diat
 <?php
 
 //kirjautuneen käyttäjän personalID?

@@ -1,6 +1,6 @@
-<?php include("includes/iheader.php");?>
+<?php include("./includes/iheader.php");?>
 <?php include("forms/fcreateaccount.php");?>
-
+//Lähteenä: Lab6 pohjana ja Karin diat
 <?php
 //Lomakkeen submit painettu?
 if(isset($_POST['submitUser'])){

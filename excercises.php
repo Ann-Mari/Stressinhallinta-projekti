@@ -8,6 +8,9 @@ include('./includes/inavindex.php');
 <?php
 //include_once("functions.php");
 ?>
+<br>
+<br>
+<br>
 
 <button type="button" id="btnKaikki">Näytä Kaikki</button>
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>

@@ -32,12 +32,12 @@ if(isset($_POST['submitUser'])){
   $data['pwd'] = password_hash($_POST['givenPassword'].$added, PASSWORD_BCRYPT);
   try {
     //***Email ei saa olla käytetty aiemmin
-    $sql = "SELECT COUNT(*) FROM Rekisteröinti where userEmail  =  " . "'".$_POST['givenEmail']."'"  ;
+    $sql = "SELECT COUNT(*) FROM userRegister where userEmail  =  " . "'".$_POST['givenEmail']."'"  ;
     $kysely=$DBH->prepare($sql);
     $kysely->execute();    			
     $tulos=$kysely->fetch();
     if($tulos[0] == 0){ //email ei ole käytössä
-     $STH = $DBH->prepare("INSERT INTO Rekisteröinti (firstName, lastName, userEmail, userPwd) VALUES (:name, :name2, :email, :pwd);");
+     $STH = $DBH->prepare("INSERT INTO userRegister (firstName, lastName, userEmail, userPwd) VALUES (:name, :name2, :email, :pwd);");
      $STH->execute($data);
      header("Location: personalinformation.php"); //Palataan pääsivulle kirjautuneena
     }else{

@@ -1,10 +1,10 @@
 <?php
 include('./config/config.php');
-include('./onfig/https.php');
+include('./config/https.php');
 ?>
 
 <?php
-include('includes/iheader.php');
+include('./includes/iheader.php');
 include('./includes/inavindex.php');
 
 ?>

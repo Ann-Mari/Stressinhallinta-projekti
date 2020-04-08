@@ -1,6 +1,6 @@
 
 <?php
-include('includes/iheader.php');
+include('./includes/iheader.php');
 include('./includes/inavindex.php');
 
 ?>

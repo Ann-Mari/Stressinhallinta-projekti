@@ -1,17 +1,13 @@
 <?php
 include('./config/config.php');
-include('./onfig/https.php');
+include('./config/https.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Vanilla JS Stopwatch - Javascript Stopwatch</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-<link rel="stylesheet" href="kello.css">
-</head>
-<body>
+<?php
+include('./includes/iheader.php');
+include('./includes/inavindex.php');
+
+?>
 <div id="timerContainer">
 <div class="timer" onclick="startTimer()">Aloita!</div>
 <div class="startTimer reset" onclick="startTimer()" >

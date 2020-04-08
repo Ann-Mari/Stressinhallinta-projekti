@@ -1,9 +1,9 @@
-<?php include("includes/iheader.php");?>
+<?php include("./includes/iheader.php");?>
 <?php include("includes/personalnav.php");?>
 <?php include("forms/fpersonalinformation.php");?>
 
 <?php
-
+//Lähteenä: Lab6 ja Lab5 sekä Karin diat
 //kirjautuneen käyttäjän personalID?
     $data1['email'] = $_SESSION['semail'];
     $sql1 = "SELECT personalID FROM userRegister where userEmail =  :email";

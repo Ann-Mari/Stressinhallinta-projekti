@@ -5,15 +5,13 @@ include('./includes/inavindex.php');
 
 ?>
 
-
-<br>
-<br>
-<br>
-
 <?php
-//include_once("functions.php");
+//include_once("harjoituset/functions.php");
 ?>
-<div class="container">
+<br>
+<br>
+<br>
+<div class="excercises">
 <button type="button" id="btnKaikki">Näytä Kaikki</button>
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>

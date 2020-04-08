@@ -32,5 +32,8 @@ session_start();
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+	<script src="includes/plotly-latest.min.js"></script>
+
+
 </head>
 <body>

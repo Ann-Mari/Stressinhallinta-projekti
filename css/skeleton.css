@@ -287,7 +287,8 @@ label > .label-body {
 
 
 
-/* Navigaatio menu 
+/* Navigaatio menu, apua katsottu netistä erilaisista lähteistä
+sekä edellisen vuoden web projektista
 ______________________________*/
 
 #menuToggle
@@ -432,13 +433,10 @@ ______________________________*/
   transform: none;
 }
 
-/* Piilotetut asiat
----------------------------------------------- */
+/*
+Muut divit
+-------------------------------------------------- */
 
-.piilo{
-  visibility: hidden;
-
-}
 
 
 

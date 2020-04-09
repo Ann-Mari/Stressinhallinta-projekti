@@ -14,7 +14,7 @@ if(isset($_POST['submitUser'])){
    $_SESSION['swarningInput']="Illegal email";
   }else if(strlen($_POST['givenPassword'])<8){
   $_SESSION['swarningInput']="Illegal password (min 8 chars)";
-  }else if(!$_POST['givenPassword'] == $_POST['givenPasswordVerify']){
+  }else if($_POST['givenPassword'] != $_POST['givenPasswordVerify']){
   $_SESSION['swarningInput']="Given password and verified not same";
   }else{
   unset($_SESSION['swarningInput']);

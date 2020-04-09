@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="Kello/kello.css">
 
 <div id="kelloToiminta">
+
 <div id="timerContainer">
 <div class="timer" onclick="startTimer()">Aloita!</div>
 <div class="startTimer reset" onclick="startTimer()" >

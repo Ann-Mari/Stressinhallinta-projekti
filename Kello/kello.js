@@ -1,3 +1,7 @@
+//kellon koodi on otettu suoraan tuolta
+//https://medium.com/@olinations/an-accurate-vanilla-js-stopwatch-script-56ceb5c6f45b
+//sitä on sitten muokattu meidän tarkoitukseemme sopivaksi
+
 var startTimerButton = document.querySelector('.startTimer');
 var pauseTimerButton = document.querySelector('.pauseTimer');
 var timerDisplay = document.querySelector('.timer');

@@ -1,7 +1,8 @@
-<?php include("includes/iheader.php");?>
+<?php include("./includes/iheader.php");?>
 <?php include("forms/fcreateaccount.php");?>
 
 <?php
+//Lähteenä: Lab6 pohjana ja Karin diat
 //Lomakkeen submit painettu?
 if(isset($_POST['submitUser'])){
   //Tarkistetaan syötteet myös palvelimella
@@ -31,14 +32,14 @@ if(isset($_POST['submitUser'])){
   $data['pwd'] = password_hash($_POST['givenPassword'].$added, PASSWORD_BCRYPT);
   try {
     //***Email ei saa olla käytetty aiemmin
-    $sql = "SELECT COUNT(*) FROM Rekisteröinti where userEmail  =  " . "'".$_POST['givenEmail']."'"  ;
+    $sql = "SELECT COUNT(*) FROM userRegister where userEmail  =  " . "'".$_POST['givenEmail']."'"  ;
     $kysely=$DBH->prepare($sql);
     $kysely->execute();    			
     $tulos=$kysely->fetch();
     if($tulos[0] == 0){ //email ei ole käytössä
-     $STH = $DBH->prepare("INSERT INTO Rekisteröinti (firstName, lastName, userEmail, userPwd) VALUES (:name, :name2, :email, :pwd);");
+     $STH = $DBH->prepare("INSERT INTO userRegister (firstName, lastName, userEmail, userPwd) VALUES (:name, :name2, :email, :pwd);");
      $STH->execute($data);
-     header("Location: index.php"); //Palataan pääsivulle kirjautuneena
+     header("Location: personalinformation.php"); //Palataan pääsivulle kirjautuneena
     }else{
       $_SESSION['swarningInput']="Email is reserved";
     }

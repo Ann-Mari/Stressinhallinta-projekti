@@ -20,6 +20,9 @@ include('./includes/inavindex.php');
       </div>
       <div id="kello">
           Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
+          <?php
+          include('Kello/kello.php')
+          ?>
       </div>
       <div id="paivanHarjoitukset">
           Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.

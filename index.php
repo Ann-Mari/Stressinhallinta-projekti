@@ -21,11 +21,14 @@ include('./includes/inavindex.php');
       <div id="kello">
           Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
           <?php
-          include('Kello/kello.php')
+          include('Kello/kello.php');
           ?>
       </div>
       <div id="paivanHarjoitukset">
           Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.
+          <?php
+          include("meditaatioEtusivuHarjoitus");
+          ?>
       </div>
       <div id="paivanFiilis">
         Tähän tulee toiminnallisuus päivän fiiliksestä. Ensimmäisessä näkymässä kysytään numeraalinen arvo päivän fiiliksestä.

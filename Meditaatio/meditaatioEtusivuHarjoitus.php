@@ -1,5 +1,6 @@
 <?php
-var $s = pvHarjoitus()
+include("meditaatioharjoitus.js");
+$s = pvHarjoitus();
 
 ?>
 

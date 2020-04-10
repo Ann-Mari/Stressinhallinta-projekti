@@ -7,11 +7,14 @@ include('./includes/iheader.php');
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+
 <?php
-
-include('./includes/inavindex.php');
-
+    if(!isset($_SESSION['sloggedIn'])){
+      include('./includes/startnav.php');
+    }else{
 ?>
+<?php include('./includes/inavindex.php');?>
+
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
@@ -40,3 +43,6 @@ include('./includes/inavindex.php');
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
+<?php
+}
+?>

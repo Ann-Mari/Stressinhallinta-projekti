@@ -27,7 +27,7 @@ include('./includes/inavindex.php');
       <div id="paivanHarjoitukset">
           Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.
           <?php
-          include("meditaatioEtusivuHarjoitus");
+          include("Meditaatio/meditaatioEtusivuHarjoitus.php");
           ?>
       </div>
       <div id="paivanFiilis">

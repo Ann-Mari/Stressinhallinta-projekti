@@ -9,7 +9,7 @@
 if(isset($_POST['submitUser'])){
   //***Tarkistetaan email myös palvelimella
   if(!filter_var($_POST['givenEmail'], FILTER_VALIDATE_EMAIL)){
-   $_SESSION['swarningInput']="Illegal email";
+   $_SESSION['swarningInput']="Väärä sähköposti";
   }else{
     unset($_SESSION['swarningInput']);  
      try {
@@ -33,10 +33,10 @@ if(isset($_POST['submitUser'])){
               $_SESSION['suserEmail']=$tulosOlio->userEmail;
               header("Location: index.php"); //Palataan pääsivulle kirjautuneena
           }else{
-            $_SESSION['swarningInput']="Wrong password";
+            $_SESSION['swarningInput']="Väärä salasana";
           }
       }else{
-        $_SESSION['swarningInput']="Wrong email";
+        $_SESSION['swarningInput']="Väärä sähköposti";
       }
      } catch(PDOException $e) {
         file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
@@ -59,6 +59,6 @@ if(isset($_POST['submitBack'])){
 <?php
   //***Näytetäänkö lomakesyötteen aiheuttama varoitus?
 if(isset($_SESSION['swarningInput'])){
-  echo("<p class=\"warning\">ILLEGAL INPUT: ". $_SESSION['swarningInput']."</p>");
+  echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
 }
 ?>

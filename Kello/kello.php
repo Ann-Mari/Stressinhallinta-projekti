@@ -16,9 +16,8 @@
     <i class="fas fa-pause"></i>
   </div>
 <div class="resetTimer reset" onclick="resetTimer()">Tyhjennä</div>
-</div>
 <div class="saveExercise reset" onclick="saveExercise()">Tallenna</div>
-</div>
+</div></div>
 <script type="text/javascript" src="Kello/kello.js"></script>
 </div>
 </div>

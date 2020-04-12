@@ -14,13 +14,8 @@
               <input type="range" id="alkoholi" name="alkoholi" min="0" max="15" step="1">
             </p><p>
             
-              <label for="nukkumaan">Milloin menit nukkumaan:</label>
+              <label for="nukkumaan">Kuinka pitkään nukuit?:</label>
               <input type="time" id="nukkumaan" name="nukkumaan">
-
-            </p><p>
-
-              <label for="heratys">Milloin heräsit:</label>
-              <input type="time" id="heratys" name="heratys">
 
             </p><p>
             <br />  <input type="submit" name="submitFiilis" value="Hyväksy"/>

@@ -1,9 +1,10 @@
-<?php include("includes/iheader.php");?>
+<?php include("./includes/iheader.php");?>
 <?php include("forms/flogin.php"); ?>
 
 <?php include("config/config.php");?>
 
 <?php
+//Lähteenä: Lab6 ja Karin diat
 //Lomakkeen submit painettu?
 if(isset($_POST['submitUser'])){
   //***Tarkistetaan email myös palvelimella

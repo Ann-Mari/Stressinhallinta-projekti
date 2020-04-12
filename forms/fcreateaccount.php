@@ -17,6 +17,7 @@
   </p><p>
   <br />  <input type="submit" name="submitUser" value="Hyväksy"/>
           <input type="reset"  value="Tyhjennä"/>
+          <input type="submit" name="submitBack" value="Palaa kirjautumissivulle"/>
   </p>
   </form>
   </fieldset> 

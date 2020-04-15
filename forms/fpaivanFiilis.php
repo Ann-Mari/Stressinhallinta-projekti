@@ -34,6 +34,10 @@ if(isset($_POST['submitFiilis'])){
   $data['kofeiini'] = $_POST['kahvi']; 
   $data['alkoholi'] = $_POST['alkoholi'];  
   $data['uni'] = $_POST['nukkumaan'];
-  $data['uniLaatu'] = $_POST['uniLaatu'];       
+  $data['uniLaatu'] = $_POST['uniLaatu'];  
+
+  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, uniLaatu) VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu);");
+  $STH->execute($data);
+  //header("Location: index.php"); //Palataan pääsivulle kirjautuneena     
 }
   ?>

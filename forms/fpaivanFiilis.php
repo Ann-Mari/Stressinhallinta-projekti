@@ -30,7 +30,7 @@
 <?php
 if(isset($_POST['submitFiilis'])){
 //laitetaan päivn fiilikset kantaan
-  $data['paivanFiilis'] = $_POST['fiilis'];
+  $data['päivänFiilis'] = $_POST['fiilis'];
   $data['kofeiini'] = $_POST['kahvi']; 
   $data['alkoholi'] = $_POST['alkoholi'];  
   $data['uni'] = $_POST['nukkumaan'];

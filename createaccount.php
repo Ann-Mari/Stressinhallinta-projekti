@@ -7,15 +7,15 @@
 if(isset($_POST['submitUser'])){
   //Tarkistetaan syötteet myös palvelimella
   if(strlen($_POST['givenFirstname'])<4){
-   $_SESSION['swarningInput']="Illegal firstname (min 4 chars)";
+   $_SESSION['swarningInput']="Liian vähän kirjaimia etunimessä (min 4 kirjainta)";
 }else if(strlen($_POST['givenLastname'])<4){
-    $_SESSION['swarningInput']="Illegal lastname (min 4 chars)";
+    $_SESSION['swarningInput']="Liian vähän kirjaimia sukunimessä (min 4 kirjainta)";
   }else if(!filter_var($_POST['givenEmail'], FILTER_VALIDATE_EMAIL)){
-   $_SESSION['swarningInput']="Illegal email";
+   $_SESSION['swarningInput']="Väärä sähköposti";
   }else if(strlen($_POST['givenPassword'])<8){
-  $_SESSION['swarningInput']="Illegal password (min 8 chars)";
-  }else if(!$_POST['givenPassword'] == $_POST['givenPasswordVerify']){
-  $_SESSION['swarningInput']="Given password and verified not same";
+  $_SESSION['swarningInput']="Liian vähän merkkejä salasanassa (min 8 merkkiä)";
+  }else if($_POST['givenPassword'] != $_POST['givenPasswordVerify']){
+  $_SESSION['swarningInput']="salasana ei vastaa annettua salasanaa";
   }else{
   unset($_SESSION['swarningInput']);
   //1. Tiedot sessioon
@@ -41,7 +41,7 @@ if(isset($_POST['submitUser'])){
      $STH->execute($data);
      header("Location: personalinformation.php"); //Palataan pääsivulle kirjautuneena
     }else{
-      $_SESSION['swarningInput']="Email is reserved";
+      $_SESSION['swarningInput']="Sähköposti on käytössä";
     }
   } catch(PDOException $e) {
     file_put_contents('log/DBErrors.txt', 'signInUser.php: '.$e->getMessage()."\n", FILE_APPEND);
@@ -68,6 +68,6 @@ if(isset($_POST['submitBack'])){
 <?php
   //Näytetäänkö lomakesyötteen aiheuttama varoitus?
 if(isset($_SESSION['swarningInput'])){
-  echo("<p class=\"warning\">ILLEGAL INPUT: ". $_SESSION['swarningInput']."</p>");
+  echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
 }
 ?>

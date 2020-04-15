@@ -23,3 +23,14 @@
             </p>
           </form>
        </fieldset>
+<?php
+
+
+//laitetaan päivn fiilikset kantaan
+  $data['name'] = $_POST['givenUsername'];
+  $data['email'] = $_POST['givenEmail'];      
+  $data['pwd'] = password_hash($_POST['givenPassword'].$added, PASSWORD_BCRYPT);
+
+
+
+  ?>

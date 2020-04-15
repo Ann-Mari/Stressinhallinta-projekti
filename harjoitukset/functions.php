@@ -1,5 +1,8 @@
 <?
-
+//haetaan harjoitukset tietokannasta
+//napilla meditaatio, haetaan tietokannasta harjoitukset joilla on meditaatiotag
+//napilla jooga, haetaan tietokannasta harjoitukset joilla on jooga tag
+//napilla kaikki, haetaan tietokannasta kaikki harjoitukset
 function trainingText($liikunta) {
       
       
@@ -13,7 +16,7 @@ function trainingText($liikunta) {
     "hpbVRzETA9E");
 
     for ($i=0; $i<=$treeniLinkit; $i++){
-        echo "<iframe width='560' height='315' src='https://www.youtube.com/embed/$treeniLinkit[$i]' frameborder='0' allowfullscreen></iframe>";
+        echo("<iframe width='560' height='315' src='https://www.youtube.com/embed/$treeniLinkit[$i]' frameborder='0' allowfullscreen></iframe>");
     }
 }
 ?>

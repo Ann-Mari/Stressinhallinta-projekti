@@ -13,18 +13,18 @@
     font-size: 24px;
     text-align:center;
     color: #fff;
-    background: #A90000;
+    background:#66B388;
     cursor: pointer
   }
   .reset {
-    background: #550000;
+    background:rgb(55, 100, 75);
     color: white;
     width:14.9%;
-    border-left: 1px solid #990000;
+    border-left: 1px solid rgb(55, 100, 75);
   }
   .reset:hover {
-    background: #CC0000;
+    background:rgb(74, 129, 98);
   }
   .lighter {
-    background: #CC0000
+    background: rgb(74, 129, 98);
   }

@@ -28,16 +28,22 @@
           </form>
        </fieldset>
 <?php
+include("./includes/iheader.php");
 if(isset($_POST['submitFiilis'])){
+   //1. Tiedot sessioon
+   $_SESSION['späivänFiilis']=$_POST['fiilis'];
+   $_SESSION['skofeiini']=$_POST['kahvi'];
+   $_SESSION['salkoholi']= $_POST['alkoholi'];
+   $_SESSION['suni']=$_POST['nukkumaan'];
+   $_SESSION['suniLaatu']= $_POST['uniLaatu'];
 //laitetaan päivn fiilikset kantaan
   $data['päivänFiilis'] = $_POST['fiilis'];
   $data['kofeiini'] = $_POST['kahvi']; 
   $data['alkoholi'] = $_POST['alkoholi'];  
   $data['uni'] = $_POST['nukkumaan'];
   $data['uniLaatu'] = $_POST['uniLaatu'];  
-
-  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, uniLaatu) VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu);");
+  
+  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, unenLaatu) VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu);");
   $STH->execute($data);
-  //header("Location: index.php"); //Palataan pääsivulle kirjautuneena     
-}
+} 
   ?>

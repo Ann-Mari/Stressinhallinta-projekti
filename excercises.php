@@ -11,7 +11,7 @@ include('./includes/inavindex.php');
 <br>
 <br>
 <br>
-<div class="one-half column" style="margin-top: 25%">
+<div class="one-half column" style="margin-top: 10%">
 <div class="excercises">
 <button type="button" id="btnKaikki">Näytä Kaikki</button>
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>

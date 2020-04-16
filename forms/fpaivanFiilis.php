@@ -18,8 +18,26 @@
               <input type="time" id="nukkumaan" name="nukkumaan">
 
             </p><p>
+            <label for="uniLaatu">Miten hyvin nukuit?:</label>
+              <input type="range" id="uniLaatu" name="uniLaatu" min="0" max="10" step="1">
+
+            </p><p>
             <br />  <input type="submit" name="submitFiilis" value="Hyväksy"/>
                     <input type="reset"  value="Tyhjennä"/>
             </p>
           </form>
        </fieldset>
+<?php
+if(isset($_POST['submitFiilis'])){
+//laitetaan päivn fiilikset kantaan
+  $data['päivänFiilis'] = $_POST['fiilis'];
+  $data['kofeiini'] = $_POST['kahvi']; 
+  $data['alkoholi'] = $_POST['alkoholi'];  
+  $data['uni'] = $_POST['nukkumaan'];
+  $data['uniLaatu'] = $_POST['uniLaatu'];  
+
+  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, uniLaatu) VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu);");
+  $STH->execute($data);
+  //header("Location: index.php"); //Palataan pääsivulle kirjautuneena     
+}
+  ?>

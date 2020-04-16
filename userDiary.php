@@ -8,7 +8,7 @@ include('./includes/inavindex.php');
 <br>
 <br>
 <main>
-<div class="one-half column" style="margin-top: 10%">
+<div class="one-half column" style="margin-top: 10% margin:auto" >
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>

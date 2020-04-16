@@ -12,7 +12,7 @@ include('./includes/inavindex.php');
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
-<div id='Kahvin ja alkoholin määrä' style="width:800px;height:300px;"></div>
+<div id='Kahvin ja alkoholin määrä' style="width:60%;height:600px;"></div>
 <script>
 var trace1 = {
   x: [1, 2, 3, 4, 5, 6, 7],
@@ -30,7 +30,23 @@ var trace2 = {
   
 };
 
-var data = [trace1, trace2];
+var trace3 = {
+  x: [1, 2, 3, 4, 5, 6, 7],
+  y: [8, 7, 8, 8, 9, 8, 4],
+  type: 'scatter',
+  name: 'Unen määrä (h)'
+  
+};
+
+var trace4 = {
+  x: [1, 2, 3, 4, 5, 6, 7],
+  y: [5, 7, 8, 9, 7, 8, 3],
+  type: 'scatter',
+  name: 'Unen laatu'
+  
+};
+
+var data = [trace1, trace2, trace3, trace4];
 
 Plotly.newPlot('Kahvin ja alkoholin määrä', data);
 /*

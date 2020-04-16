@@ -8,7 +8,7 @@ include('./includes/inavindex.php');
 <br>
 <br>
 <main>
-
+<div class="one-half column" style="margin-top: 25%">
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
@@ -57,7 +57,7 @@ Plotly.newPlot('Kahvin ja alkoholin määrä', data);
 	margin: { t: 0 } } );
 	*/
 </script>
-
+  </div>
 </main>
 
 

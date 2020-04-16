@@ -11,6 +11,7 @@
   <br />  <input type="text" name="givenHeight" placeholder="  " maxlength="40"/>
   </p><p>
   Paino
+  
   <br />  <input type="text" name="givenWeight" placeholder="  " maxlength="40"/>
   </p><p>
   Kuinka stressaantunut olet? 

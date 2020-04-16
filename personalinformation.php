@@ -21,8 +21,8 @@ if(isset($_POST['submitUser'])){
    //Tarkistetaan syötteet myös palvelimella
    if(strlen($_POST['givenAge'])>2){
     $_SESSION['swarningInput']="liian paljon merkkejä ikä kohdassa (max 2 merkkiä)";
- }else if(strlen($_POST['givenGender'])<4){
-     $_SESSION['swarningInput']="liian vähän kirjaimia sukupuoli kohdassa (min 4 kirjainta)";
+ }else if(strlen($_POST['givenGender'])<3){
+     $_SESSION['swarningInput']="liian vähän kirjaimia sukupuoli kohdassa (min 3 kirjainta)";
  /* }else if(!filter_var($_POST['givenHeight'])<1){
     $_SESSION['swarningInput']="Liian vähän merkkejä pituus kohdassa (min 1 merkki)";
    }else if(strlen($_POST['givenWeight'])<2){

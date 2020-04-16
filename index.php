@@ -6,20 +6,29 @@ include('./includes/iheader.php');
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+
 <?php
-
-include('./includes/inavindex.php');
-
+    if(!isset($_SESSION['sloggedIn'])){
+      include('./includes/startnav.php');
+    }else{
 ?>
+<?php include('./includes/inavindex.php');?>
+
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
       
       <div id="kello">
           Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
+          <?php
+          include('Kello/kello.php');
+          ?>
       </div>
       <div id="paivanHarjoitukset">
           Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.
+          <?php
+          include("Meditaatio/meditaatioEtusivuHarjoitus.php");
+          ?>
       </div>
       <div id="paivanFiilis">
         Tähän tulee toiminnallisuus päivän fiiliksestä. Ensimmäisessä näkymässä kysytään numeraalinen arvo päivän fiiliksestä.
@@ -39,3 +48,6 @@ include('./includes/inavindex.php');
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
+<?php
+}
+?>

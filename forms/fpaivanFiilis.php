@@ -29,6 +29,16 @@
        </fieldset>
 <?php
 include("./includes/iheader.php");
+
+//kirjautuneen käyttäjän personalID?
+    $data1['email'] = $_SESSION['semail'];
+    $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
+    $kysely1=$DBH->prepare($sql1);
+    $kysely1->execute($data1);
+    $tulos1=$kysely1->fetch();
+    $currentpersonalID=$tulos1[0];
+    
+
 if(isset($_POST['submitFiilis'])){
    //1. Tiedot sessioon
    $_SESSION['späivänFiilis']=$_POST['fiilis'];
@@ -36,14 +46,24 @@ if(isset($_POST['submitFiilis'])){
    $_SESSION['salkoholi']= $_POST['alkoholi'];
    $_SESSION['suni']=$_POST['nukkumaan'];
    $_SESSION['suniLaatu']= $_POST['uniLaatu'];
-//laitetaan päivn fiilikset kantaan
-  $data['päivänFiilis'] = $_POST['fiilis'];
-  $data['kofeiini'] = $_POST['kahvi']; 
-  $data['alkoholi'] = $_POST['alkoholi'];  
-  $data['uni'] = $_POST['nukkumaan'];
-  $data['uniLaatu'] = $_POST['uniLaatu'];  
+//laitetaan päivän fiilikset kantaan
+try{
   
-  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, unenLaatu) VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu);");
-  $STH->execute($data);
-} 
+  $data2['päivänFiilis'] = $_POST['fiilis'];
+  $data2['kofeiini'] = $_POST['kahvi']; 
+  $data2['alkoholi'] = $_POST['alkoholi'];  
+  $data2['uni'] = $_POST['nukkumaan'];
+  $data2['uniLaatu'] = $_POST['uniLaatu'];  
+  $data2['personalID'] = $currentpersonalID;
+  
+  $SQL2 =("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, unenLaatu, personalID)
+   VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu, :personalID);");
+  $kysely2 = $DBH->prepare($sql2);
+  $kysely2->execute($data2);
+} catch(PDOException $e) {
+ file_put_contents('log/DBErrors.txt', 'index.php: '.$e->getMessage()."\n", FILE_APPEND);
+ $_SESSION['swarningInput'] = 'Database problem';
+}
+}
+ 
   ?>

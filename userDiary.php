@@ -49,13 +49,44 @@ var trace4 = {
 var data = [trace1, trace2, trace3, trace4];
 
 Plotly.newPlot('Kahvin ja alkoholin määrä', data);
-/*
-	TESTER = document.getElementById('Kahvi ');
-	Plotly.newPlot( TESTER, [{
-	x: [1, 2, 3, 4, 5],
-	y: [1, 2, 4, 8, 16] }], {
-	margin: { t: 0 } } );
-	*/
+
+</script>
+
+<h2>Tässä käyttäjän leposykkeet</h2>
+<div id = 'leposyke' style="width:60%;height:600px;"></div>
+<script>
+
+function makeplot() {
+  Plotly.d3.csv('leposyke.csv', function(data){ processData(data) } );
+
+};
+
+function processData(allRows) {
+
+  console.log(allRows);
+  var x = [], y = [];
+
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['Päivämäärä'] );
+    y.push( row['Leposyke'] );
+  }
+  console.log( 'Päivät',x, 'Syke',y, 'SD');
+  makePlotly( x, y);
+}
+
+function makePlotly( x, y){
+  var plotDiv = document.getElementById("plot");
+  var traces = [{
+    x: x,
+    y: y
+  }];
+
+  Plotly.newPlot('leposyke', traces,
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+
 </script>
 
 </main>

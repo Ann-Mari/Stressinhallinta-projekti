@@ -37,8 +37,8 @@ function pauseTimer(){
     savedTime = difference;
     paused = 1;
     running = 0;
-    timerDisplay.style.background = "#A90000";
-    timerDisplay.style.color = "#690000";
+    timerDisplay.style.background = "rgb(74, 129, 98)";
+    timerDisplay.style.color = "rgb(55, 100, 75)";
     timerDisplay.style.cursor = "pointer";
     startTimerButton.classList.remove('lighter');
     pauseTimerButton.classList.add('lighter');
@@ -56,7 +56,7 @@ function resetTimer(){
   paused = 0;
   running = 0;
   timerDisplay.innerHTML = 'Aloita!';
-  timerDisplay.style.background = "#A90000";
+  timerDisplay.style.background = "#rgb(74, 129, 98)";
   timerDisplay.style.color = "#fff";
   timerDisplay.style.cursor = "pointer";
   startTimerButton.classList.remove('lighter');

@@ -23,11 +23,13 @@ if(isset($_POST['submitUser'])){
     $_SESSION['swarningInput']="liian paljon merkkejä ikä kohdassa (max 2 merkkiä)";
  }else if(strlen($_POST['givenGender'])<3){
      $_SESSION['swarningInput']="liian vähän kirjaimia sukupuoli kohdassa (min 3 kirjainta)";
+
   }else if(($_POST['givenHeight']<=150) && ($_POST['givenHeight'] >=2.5)){
       $_SESSION['swarningInput']="Pituus ei ole laitettu oikein (pituus välillä 150-2.5 cm)";
   }else if(($_POST['givenWeight']>=45) && ($_POST['givenWeight'] >=250)){
      $_SESSION['swarningInput']="Paino ei ole laitettu oikein (paino pitäisi olla 45-250 kg välillä)";
  /* }else if(strlen($_POST['givenStress'])<1){
+
    $_SESSION['swarningInput']="Liian vähän merkkejä stressi kohdassa (min 1 merkki)";
  }else if(strlen($_POST['givenMeditation'])<3){
    $_SESSION['swarningInput']="Liian vähän merkkejä meditaatio tausta kohdassa (min 3 merkkiä)";

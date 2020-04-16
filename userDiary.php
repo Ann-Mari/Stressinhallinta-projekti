@@ -15,7 +15,7 @@ include('./includes/inavindex.php');
 <div id='Kahvin ja alkoholin määrä' style="width:60%;height:600px;"></div>
 <script>
 var trace1 = {
-  x: [1, 2, 3, 4, 5, 6, 7],
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [4, 6, 4, 3, 2, 2, 4],
   type: 'scatter',
   name: 'Kahvikuppien määrä'
@@ -23,7 +23,7 @@ var trace1 = {
 };
 
 var trace2 = {
-  x: [1, 2, 3, 4, 5, 6, 7],
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [0, 1, 0, 2, 4, 12, 0],
   type: 'scatter',
   name: 'Alkoholiannosten määrä'
@@ -31,7 +31,7 @@ var trace2 = {
 };
 
 var trace3 = {
-  x: [1, 2, 3, 4, 5, 6, 7],
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [8, 7, 8, 8, 9, 8, 4],
   type: 'scatter',
   name: 'Unen määrä (h)'
@@ -39,9 +39,9 @@ var trace3 = {
 };
 
 var trace4 = {
-  x: [1, 2, 3, 4, 5, 6, 7],
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [5, 7, 8, 9, 7, 8, 3],
-  type: 'scatter',
+  type: 'bar',
   name: 'Unen laatu'
   
 };
@@ -49,13 +49,44 @@ var trace4 = {
 var data = [trace1, trace2, trace3, trace4];
 
 Plotly.newPlot('Kahvin ja alkoholin määrä', data);
-/*
-	TESTER = document.getElementById('Kahvi ');
-	Plotly.newPlot( TESTER, [{
-	x: [1, 2, 3, 4, 5],
-	y: [1, 2, 4, 8, 16] }], {
-	margin: { t: 0 } } );
-	*/
+
+</script>
+
+<h2>Tässä käyttäjän leposykkeet</h2>
+<div id = 'leposyke' style="width:60%;height:600px;"></div>
+<script>
+
+function makeplot() {
+  Plotly.d3.csv('leposyke.csv', function(data){ processData(data) } );
+
+};
+
+function processData(allRows) {
+
+  console.log(allRows);
+  var x = [], y = [];
+
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['Päivämäärä'] );
+    y.push( row['Leposyke'] );
+  }
+  console.log( 'Päivät',x, 'Syke',y, 'SD');
+  makePlotly( x, y);
+}
+
+function makePlotly( x, y){
+  var plotDiv = document.getElementById("plot");
+  var traces = [{
+    x: x,
+    y: y
+  }];
+
+  Plotly.newPlot('leposyke', traces,
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+
 </script>
 
 </main>

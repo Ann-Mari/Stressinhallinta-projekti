@@ -18,36 +18,43 @@ include('./includes/inavindex.php');
 //kopioitiin fcreateaccount.php profiilin lomakkeen pohjaksi, sitä voi ruveta siitä sitten muuttamaan,
 //hakemaan tietokannasta annetut arvot ja antaa käyttäjän muuttaa haluamiaan arvoja.
 ?>
+
+<div>Tässä voi muuttaa oman profiilin tietoja</div>
 <form method="post">
-<p>Etunimi
-  <br /> <input type="text" name="givenFirstname" placeholder="vähintään neljä kirjainta" maxlength="40"/>
-  </p><p>
-   Sukunimi
-  <br/><input type="text" name="givenLastname" placeholder="vähintään neljä kirjainta" maxlength="40"/>
-  </p><p>
   Kuntotasosi 
-  <br />  <input type="text" name="givenFittnes" placeholder="oikea sähköposti" maxlength="40"/>
-  </p><p>
-  Pituus 
-  <br />  <input type="text" name="givenHeight" placeholder="oikea sähköposti" maxlength="40"/>
+  <br />  <input type="text" name="annettuKuntotaso" placeholder="oikea sähköposti" maxlength="40"/>
   </p><p>
   Paino 
-  <br />  <input type="text" name="givenWeight" placeholder="oikea sähköposti" maxlength="40"/>
+  <br />  <input type="text" name="annettuPaino" placeholder="oikea sähköposti" maxlength="40"/>
   </p><p>
-   Sähköposti 
-  <br />  <input type="text" name="givenEmail" placeholder="oikea sähköposti" maxlength="40"/>
+  Uusi Salasana 
+  <br />  <input type="password" name="uusiSalasana" placeholder="salasanaan vähintään 8 merkkiä" maxlength="40"/>
   </p><p>
-   Salasana 
-  <br />  <input type="password" name="givenPassword" placeholder="salasanaan vähintään 8 merkkiä" maxlength="40"/>
+  Salasanan vahvistaminen
+  <br />  <input type="password" name="uusiSalasanaVahvistus" placeholder="salasana uudestaan" maxlength="40"/>
   </p><p>
-   Salasanan vahvistaminen
-  <br />  <input type="password" name="givenPasswordVerify" placeholder="salasana uudestaan" maxlength="40"/>
-  </p><p>
-  <br />  <input type="submit" name="submitUser" value="Hyväksy"/>
+  <br />  <input type="submit" name="submitProfile" value="Hyväksy"/>
           <input type="reset"  value="Tyhjennä"/>
   </p>
   </form>
   </fieldset> 
+
+  <?php
+if(isset($_POST['submitProfile'])){
+//laitetaan päivn fiilikset kantaan
+  $data['annettuKuntotaso'] = $_POST['annettuKuntotaso'];
+  $data['annettuPaino'] = $_POST['annettuPaino']; 
+  if($_POST['uusiSalasana'] != $_POST['uusiSalasanaVahvistus']){
+    $_SESSION['swarningInput']="salasana ei vastaa annettua salasanaa";}
+  else if($_POST['uusiSalasana'] = $_POST['uusiSalasanaVahvistus']){
+    $data['uusiSalasana'] = $_POST['uusiSalasana']; }
+ 
+
+  $STH = $DBH->prepare("INSERT INTO Päivän_Fiilis (kuntotaso, paino, salasana) VALUES (:annettuKuntotaso, :annettuPaino, :uusiSalasana);");
+  $STH->execute($data);
+  //header("Location: index.php"); //Palataan pääsivulle kirjautuneena     
+}
+  ?>
 </main>
 
 </body>

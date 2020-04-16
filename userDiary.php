@@ -41,7 +41,7 @@ var trace3 = {
 var trace4 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [5, 7, 8, 9, 7, 8, 3],
-  type: 'scatter',
+  type: 'bar',
   name: 'Unen laatu'
   
 };

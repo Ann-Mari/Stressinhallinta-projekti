@@ -32,19 +32,21 @@ var trace2 = {
 
 var trace3 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+  y: [5, 7, 8, 9, 7, 8, 3],
+  type: 'scatter',
+  name: 'Unen laatu'
+  
+};
+
+var trace4 = {
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [8, 7, 8, 8, 9, 8, 4],
   type: 'bar',
   name: 'Unen määrä (h)'
   
 };
 
-var trace4 = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [5, 7, 8, 9, 7, 8, 3],
-  type: 'scatter',
-  name: 'Unen laatu'
-  
-};
+
 
 var data = [trace1, trace2, trace3, trace4];
 
@@ -56,6 +58,38 @@ Plotly.newPlot('Kahvin ja alkoholin määrä', data);
 <div id = 'leposyke' style="width:60%;height:600px;"></div>
 <script>
 
+function makeplot() {
+  Plotly.d3.csv("leposyke.csv", function(data){ processData(data) } );
+
+};
+
+function processData(allRows) {
+
+  console.log(allRows);
+  var x = [], y = [], standard_deviation = [];
+
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['Päivämäärä'] );
+    y.push( row['Leposyke'] );
+  }
+  console.log( 'X',x, 'Y',y, 'SD',standard_deviation );
+  makePlotly( x, y, standard_deviation );
+}
+
+function makePlotly( x, y, standard_deviation ){
+  var plotDiv = document.getElementById("plot");
+  var traces = [{
+    x: x,
+    y: y
+  }];
+
+  Plotly.newPlot('leposyke', traces,
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+
+/*
 function makeplot() {
   Plotly.d3.csv('leposyke.csv', function(data){ processData(data) } );
 
@@ -76,7 +110,7 @@ function processData(allRows) {
 }
 
 function makePlotly( x, y){
-  var plotDiv = document.getElementById("plot");
+  var plotDiv = document.getElementById("leposyke");
   var traces = [{
     x: x,
     y: y
@@ -86,7 +120,7 @@ function makePlotly( x, y){
     {title: 'Plotting CSV data from AJAX call'});
 };
   makeplot();
-
+*/
 </script>
   </div>
 </main>

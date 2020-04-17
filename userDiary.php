@@ -33,7 +33,7 @@ var trace2 = {
 var trace3 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [8, 7, 8, 8, 9, 8, 4],
-  type: 'scatter',
+  type: 'bar',
   name: 'Unen määrä (h)'
   
 };
@@ -41,7 +41,7 @@ var trace3 = {
 var trace4 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [5, 7, 8, 9, 7, 8, 3],
-  type: 'bar',
+  type: 'scatter',
   name: 'Unen laatu'
   
 };

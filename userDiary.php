@@ -1,7 +1,36 @@
 
 <?php
-include("includes/iheader.php");
+include("./includes/iheader.php");
 include('./includes/inavindex.php');
+?>
+<?php
+try {
+  $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
+  $kysely = $DBH->prepare($sql);
+  $kysely->execute();
+  $tulos=$kysely->fetch();
+ // print_r($tulos);
+
+} catch (PDOException $e) {
+  die("VIRHE: " . $e->getMessage());
+}
+/*$jsonArray = array();
+if ($result->5 > 0) {
+  
+  while($row = $result->fetch_assoc()) {
+    $jsonArrayItem = array();
+    $jsonArrayItem['Paivan_Fiilis'] = $row['paivanFiilis'];
+    $jsonArrayItem['Paivan_Fiilis'] = $row['kofeiini'];
+    $jsonArrayItem['Paivan_Fiilis'] = $row['alkoholi'];
+    $jsonArrayItem['Paivan_Fiilis'] = $row['uni'];
+    $jsonArrayItem['Paivan_Fiilis'] = $row['unenLaatu'];
+    
+    array_push($jsonArray, $jsonArrayItem);
+  }
+}
+header('Content-type: application/json');
+
+echo json_encode($jsonArray);*/
 ?>
 
 <br>

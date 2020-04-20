@@ -3,10 +3,14 @@
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
 ?>
+<main>
 <br>
 <br>
 <br>
 <br>
+
+<div class ="container">
+
 <h2>Käyttäjän tilastot</h2>
 <p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
 <?php
@@ -114,12 +118,12 @@ print_r($array);
 <br>
 <br>
 <br>
-<main>
-<div class="two-thirds column" style="margin-top: 10%, margin-left: 10%" >
+
+
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
-<div id='Kahvin ja alkoholin määrä' style="width:60%;height:600px;"></div>
+<div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
@@ -167,7 +171,7 @@ Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout);
 
 
 <h2>Tässä käyttäjän leposykkeet</h2>
-<div id = 'leposyke' style="width:60%;height:600px;"></div>
+<div id = 'leposyke' style="width:85%;height:600px;"></div>
 <script>
 
 function makeplot() {
@@ -235,6 +239,7 @@ function makePlotly( x, y){
 */
 </script>
   </div>
+  
 </main>
 
 

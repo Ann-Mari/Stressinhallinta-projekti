@@ -22,7 +22,7 @@
               <input type="time" id="nukkumaan" name="nukkumaan">
 
             </p><p>
-            <label for="uniLaatu">Miten hyvin nukuit?:</label>
+            <label for="uniLaatu">Miten hyvin nukuit?(1-10):</label>
               <input type="range" id="uniLaatu" name="uniLaatu" min="0" max="10" step="1">
 
             </p><p>

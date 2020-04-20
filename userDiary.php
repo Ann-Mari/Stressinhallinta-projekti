@@ -7,7 +7,7 @@ include('./includes/inavindex.php');
 
 try {
   $data2['personalID'] = $currentpersonalID;
-  $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
+  $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()";
   $kysely = $DBH->prepare($sql);
   $kysely->execute();
   $tulos=$kysely->fetch();
@@ -51,11 +51,11 @@ echo json_encode($jsonArray);
 
 echo("<table>
 <tr>
-  <th>Kahvikuppien määrä</th>
+  <th>Unen määrä</th>
   </tr>");
 
   while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["kofeiini"]."</td>
+    echo("<tr><td>".$row["uni"]."</td>
     </tr>");
   }
 echo("</table>");

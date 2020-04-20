@@ -10,14 +10,25 @@ include('./includes/inavindex.php');
 <h2>Unen määrä</h2>
 
 <?php
+$data2['personalID'] = $currentpersonalID;
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$kysely = $DBH->prepare($sql);
+$kysely->execute($data2);
+//$tulos=$kysely->fetch();
+//print_r($tulos);
 
-  $data2['personalID'] = $currentpersonalID;
-  $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
-  $kysely = $DBH->prepare($sql);
-  $kysely->execute($data2);
-  $tulos=$kysely->fetch();
-  print_r($tulos);
+echo("<table>
+<tr>
+  <th>Unen määrä ja laatu</th>
+  </tr>");
 
+  while ($row=$kysely->fetch()){
+    echo("<tr><td>".$row["uni"]."</td>
+    <td>".$row["unenLaatu"]."</td>
+    </tr>");
+  }
+echo("</table>");
+/*
   echo("<table>
   <tr>
     <th>Unen määrä</th>
@@ -29,6 +40,9 @@ include('./includes/inavindex.php');
     }
   echo("</table>");
 
+
+*/
+  echo 'Current script owner: ' . get_current_user();
 /*
 $js_array = "[";
 $result = mysql_query("päivän fiilis");

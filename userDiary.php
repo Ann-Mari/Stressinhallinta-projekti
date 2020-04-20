@@ -11,12 +11,12 @@ include('./includes/inavindex.php');
 
 <?php
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 //$tulos=$kysely->fetch();
 //print_r($tulos);
-
+//WHERE personalID = :personalID
 echo("<table>
 <tr>
   <th>Unen määrä ja laatu</th>

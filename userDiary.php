@@ -17,7 +17,7 @@ try {
 }
 
 
-
+/*
 $js_array = "[";
 $result = mysql_query("päivän fiilis");
 
@@ -26,7 +26,7 @@ while( $row= mysql_fetch_array($result, MYSQL_NUM)){
 }
 $js_array{strlen($js_array)-1 } = ']';
 echo "var db_array = $js_array;";
-
+*/
 /*
 $jsonArray = array();
 if ($result-> num_rows > 0) {
@@ -47,7 +47,7 @@ header('Content-type: application/json');
 echo json_encode($jsonArray);
 --------------------------------
 */
-/*
+
 echo("<table>
 <tr>
   <th>Kahvikuppien määrä</th>
@@ -58,7 +58,7 @@ echo("<table>
     </tr>");
   }
 echo("</table>");
-*/
+
 ?>
 
 <br>

@@ -6,6 +6,7 @@ include('./includes/inavindex.php');
 <?php
 
 try {
+  $data2['personalID'] = $currentpersonalID;
   $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
   $kysely = $DBH->prepare($sql);
   $kysely->execute();

@@ -1,3 +1,7 @@
+<?php include("./includes/iheader.php");
+// lähteenä Lab6 ja Karin materiaalit
+?>
+
 <fieldset><legend>Päivän Fiili</legend>
           <form method="post">
             <p>
@@ -18,7 +22,7 @@
               <input type="time" id="nukkumaan" name="nukkumaan">
 
             </p><p>
-            <label for="uniLaatu">Miten hyvin nukuit?:</label>
+            <label for="uniLaatu">Miten hyvin nukuit?(1-10):</label>
               <input type="range" id="uniLaatu" name="uniLaatu" min="0" max="10" step="1">
 
             </p><p>
@@ -28,9 +32,10 @@
           </form>
        </fieldset>
 <?php
-include("./includes/iheader.php");
+
 
 //kirjautuneen käyttäjän personalID?
+
     $data1['email'] = $_SESSION['semail'];
     $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
     $kysely1=$DBH->prepare($sql1);
@@ -41,7 +46,7 @@ include("./includes/iheader.php");
 
 if(isset($_POST['submitFiilis'])){
    //1. Tiedot sessioon
-   $_SESSION['späivänFiilis']=$_POST['fiilis'];
+   $_SESSION['spaivanFiilis']=$_POST['fiilis'];
    $_SESSION['skofeiini']=$_POST['kahvi'];
    $_SESSION['salkoholi']= $_POST['alkoholi'];
    $_SESSION['suni']=$_POST['nukkumaan'];
@@ -49,16 +54,16 @@ if(isset($_POST['submitFiilis'])){
 //laitetaan päivän fiilikset kantaan
 try{
   
-  $data2['päivänFiilis'] = $_POST['fiilis'];
+  $data2['paivanFiilis'] = $_POST['fiilis'];
   $data2['kofeiini'] = $_POST['kahvi']; 
   $data2['alkoholi'] = $_POST['alkoholi'];  
   $data2['uni'] = $_POST['nukkumaan'];
   $data2['uniLaatu'] = $_POST['uniLaatu'];  
   $data2['personalID'] = $currentpersonalID;
   
-  $SQL2 =("INSERT INTO Päivän_Fiilis (päivänFiilis, kofeiini, alkoholi, uni, unenLaatu, personalID)
-   VALUES (:päivänFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu, :personalID);");
-  $kysely2 = $DBH->prepare($sql2);
+  $SQL2 =("INSERT INTO Paivan_Fiilis (paivanFiilis, kofeiini, alkoholi, uni, unenLaatu, personalID)
+   VALUES (:paivanFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu, :personalID);");
+  $kysely2 = $DBH->prepare($SQL2);
   $kysely2->execute($data2);
 } catch(PDOException $e) {
  file_put_contents('log/DBErrors.txt', 'index.php: '.$e->getMessage()."\n", FILE_APPEND);

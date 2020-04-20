@@ -30,7 +30,8 @@ if(isset($_POST['submitUser'])){
               $_SESSION['sloggedIn']="yes";
               $_SESSION['sfirstName']=$tulosOlio->firstName;
               $_SESSION['slastName']=$tulosOlio->lastName;
-              $_SESSION['suserEmail']=$tulosOlio->userEmail;
+            //  $_SESSION['suserEmail']=$tulosOlio->userEmail;
+            $_SESSION['semail']=$tulosOlio->userEmail;
               header("Location: index.php"); //Palataan pääsivulle kirjautuneena
           }else{
             $_SESSION['swarningInput']="Väärä salasana";

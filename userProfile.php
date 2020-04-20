@@ -1,9 +1,6 @@
+
 <?php
-include("config/config.php");
-include("config/https.php");
-?>
-<?php
-include("includes/iheader.php");
+include("./includes/iheader.php");
 include('./includes/inavindex.php');
 ?>
 
@@ -33,49 +30,51 @@ include('./includes/inavindex.php');
   Salasanan vahvistaminen
   <br />  <input type="password" name="uusiSalasanaVahvistus" placeholder="salasana uudestaan" maxlength="40"/>
   </p><p>
-  <br />  <input type="submit" name="submitProfile" value="Hyväksy"/>
+  <br />  <input type="submit" name="submitKuPa" value="Vaihda Kunto ja paino"/>
+          <input type="submit" name="submitSalasana" value="Vaihda salasana"/>
           <input type="reset"  value="Tyhjennä"/>
   </p>
   </form>
   </fieldset> 
 
   <?php
+   $data1['email'] = $_SESSION['semail'];
+   $sql1 = "SELECT personalID FROM userRegister where userEmail =  :email";
+   $kysely1=$DBH->prepare($sql1);
+   $kysely1->execute($data1);
+   $tulos1=$kysely1->fetch();
+   $currentpersonalID=$tulos1[0];
 
-if(isset($_POST['submitProfile'])){
+if(isset($_POST['submitSalasana'])){
 
-  if(strlen($_POST['annettuKuntotaso'])<4){
-    $_SESSION['swarningInput']="liian vähän merkkejä kunto kohdassa (min 4 merkkiä)";
-   }else if(($_POST['annettuPaino']>=45) && ($_POST['givenWeight'] >=250)){
-   $_SESSION['swarningInput']="Paino ei ole laitettu oikein (paino pitäisi olla 45-250 kg välillä)";
-  }else if(strlen($_POST['uusiSalasana'])<8){
+  if(strlen($_POST['uusiSalasana'])<8){
     $_SESSION['swarningInput']="Liian vähän merkkejä salasanassa (min 8 merkkiä)";
-    }else if($_POST['uusiSalasanaVahvistus'] != $_POST['uusiSalasanaVahvistus']){
+    }else if($_POST['uusiSalasana'] != $_POST['uusiSalasanaVahvistus']){
     $_SESSION['swarningInput']="Annettu salasana ei ole sama toista kertaa annettaessa";
    }else{
    unset($_SESSION['swarningInput']);
-//laitetaan päivn fiilikset kantaan
-  $data['annettuKuntotaso'] = $_POST['annettuKuntotaso'];
-  $data['annettuPaino'] = $_POST['annettuPaino']; 
-  // lähteenä https://phppot.com/php/php-change-password-script/
-  if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "SELECT *from userRegister WHERE personalId='" . $_SESSION["personalId"] . "'");
-    $row = mysqli_fetch_array($result);
-    if ($_POST["givenPassword"] == $row["userPwd"]) {
-        mysqli_query($conn, "UPDATE userRegister set userPwd='" . $_POST["uusiSalasana"] . "' WHERE personalId='" . $_SESSION["personalId"] . "'");
-        $message = "Password Changed";
-    } else
-        $message = "Current Password is not correct";
-  /*if($_POST['uusiSalasana'] != $_POST['uusiSalasanaVahvistus']){
-    $_SESSION['swarningInput']="salasana ei vastaa annettua salasanaa";}
-  else if($_POST['uusiSalasana'] = $_POST['uusiSalasanaVahvistus']){
-    $data['uusiSalasana'] = $_POST['uusiSalasana']; }*/
+  
  
   $STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");
  /* $STH = $DBH->prepare("INSERT INTO userRegister (userPwd) VALUES (:uusiSalasana);");*/
   $STH->execute($data);
   }
 }
-}
+
+/*if($_POST['uusiSalasana'] != $_POST['uusiSalasanaVahvistus']){
+    $_SESSION['swarningInput']="salasana ei vastaa annettua salasanaa";}
+  else if($_POST['uusiSalasana'] = $_POST['uusiSalasanaVahvistus']){
+    $data['uusiSalasana'] = $_POST['uusiSalasana']; }*/
+
+/*// lähteenä https://phppot.com/php/php-change-password-script/
+if (count($_POST) > 0) {
+  $result = mysqli_query($conn, "SELECT *from userRegister WHERE personalId='" . $_SESSION["personalId"] . "'");
+  $row = mysqli_fetch_array($result);
+  if ($_POST["givenPassword"] == $row["userPwd"]) {
+      mysqli_query($conn, "UPDATE userRegister set userPwd='" . $_POST["uusiSalasana"] . "' WHERE personalId='" . $_SESSION["personalId"] . "'");
+      $message = "Password Changed";
+  } else
+      $message = "Current Password is not correct";*/
 ?>
 
 </main>

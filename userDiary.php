@@ -6,12 +6,11 @@ include('./includes/inavindex.php');
 <?php
 
 try {
-  $data2['personalID'] = $currentpersonalID;
   $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()";
   $kysely = $DBH->prepare($sql);
   $kysely->execute();
   $tulos=$kysely->fetch();
-  print_r($tulos);
+  //print_r($tulos);
 
 } catch (PDOException $e) {
   die("VIRHE: " . $e->getMessage());
@@ -28,7 +27,7 @@ while( $row= mysql_fetch_array($result, MYSQL_NUM)){
 $js_array{strlen($js_array)-1 } = ']';
 echo "var db_array = $js_array;";
 */
-/*
+
 $jsonArray = array();
 if ($result-> num_rows > 0) {
   
@@ -43,12 +42,14 @@ if ($result-> num_rows > 0) {
     array_push($jsonArray, $jsonArrayItem);
   }
 }
-header('Content-type: application/json');
+//header('Content-type: application/json');
 
-echo json_encode($jsonArray);
---------------------------------
-*/
+$jsonArray = json_encode($jsonArrayItem);
 
+echo ($jsonArray);
+
+
+/*
 echo("<table>
 <tr>
   <th>Unen määrä</th>
@@ -59,7 +60,23 @@ echo("<table>
     </tr>");
   }
 echo("</table>");
+*/
 
+
+
+/*
+
+----------------
+
+$kysely = $DBH->prepare("SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()");
+$kysely->execute();
+$array = [];
+foreach ($kysely->get_result() as $row)
+{
+    $array[] = $row['uni'];
+}
+print_r($array);
+*/
 ?>
 
 <br>

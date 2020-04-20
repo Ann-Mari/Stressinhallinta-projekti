@@ -7,8 +7,8 @@ include('./includes/inavindex.php');
 <br>
 <br>
 <br>
-<h2>Unen määrä</h2>
-
+<h2>Käyttäjän tilastot</h2>
+<p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
 <?php
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
@@ -19,11 +19,18 @@ $kysely->execute($data2);
 //WHERE personalID = :personalID
 echo("<table>
 <tr>
-  <th>Unen määrä ja laatu</th>
+  <th>Päivän fiilis</th>
+  <th>Kahvikuppien määrä</th>
+  <th>Alkoholiannosten määrä</th>
+  <th>Unen määrä</th>
+  <th>Unen laatu</th>
   </tr>");
 
   while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["uni"]."</td>
+    echo("<tr><td>".$row["paivanFiilis"]."</td>
+    <td>".$row["kofeiini"]."</td>
+    <td>".$row["alkoholi"]."</td>
+    <td>".$row["uni"]."</td>
     <td>".$row["unenLaatu"]."</td>
     </tr>");
   }
@@ -42,7 +49,7 @@ echo("</table>");
 
 
 */
-  echo 'Current script owner: ' . get_current_user();
+
 /*
 $js_array = "[";
 $result = mysql_query("päivän fiilis");

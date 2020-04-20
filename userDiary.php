@@ -3,19 +3,56 @@
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
 ?>
+<main>
+<br>
+<br>
+<br>
+<br>
+
+<div class ="container">
+
+<h2>Käyttäjän tilastot</h2>
+<p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
 <?php
+$data2['personalID'] = $currentpersonalID;
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
+$kysely = $DBH->prepare($sql);
+$kysely->execute($data2);
+//$tulos=$kysely->fetch();
+//print_r($tulos);
+//WHERE personalID = :personalID
+echo("<table>
+<tr>
+  <th>Päivän fiilis</th>
+  <th>Kahvikuppien määrä</th>
+  <th>Alkoholiannosten määrä</th>
+  <th>Unen määrä</th>
+  <th>Unen laatu</th>
+  </tr>");
 
-try {
-  $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
-  $kysely = $DBH->prepare($sql);
-  $kysely->execute();
-  $tulos=$kysely->fetch();
-  print_r($tulos);
+  while ($row=$kysely->fetch()){
+    echo("<tr><td>".$row["paivanFiilis"]."</td>
+    <td>".$row["kofeiini"]."</td>
+    <td>".$row["alkoholi"]."</td>
+    <td>".$row["uni"]."</td>
+    <td>".$row["unenLaatu"]."</td>
+    </tr>");
+  }
+echo("</table>");
+/*
+  echo("<table>
+  <tr>
+    <th>Unen määrä</th>
+    </tr>");
+  
+    while ($row=$kysely->fetch()){
+      echo("<tr><td>".$row["uni"]."</td>
+      </tr>");
+    }
+  echo("</table>");
 
-} catch (PDOException $e) {
-  die("VIRHE: " . $e->getMessage());
-}
 
+*/
 
 /*
 $js_array = "[";
@@ -42,34 +79,51 @@ if ($result-> num_rows > 0) {
     array_push($jsonArray, $jsonArrayItem);
   }
 }
-header('Content-type: application/json');
-
+//header('Content-type: application/json');
 echo json_encode($jsonArray);
---------------------------------
-*/
+?>
+<br>
+<br>
+<br>
+<br>
+<?php
+
 
 echo("<table>
 <tr>
-  <th>Kahvikuppien määrä</th>
+  <th>Unen määrä</th>
   </tr>");
 
   while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["kofeiini"]."</td>
+    echo("<tr><td>".$row["uni"]."</td>
     </tr>");
   }
 echo("</table>");
 
+/*
+
+----------------
+
+$kysely = $DBH->prepare("SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()");
+$kysely->execute();
+$array = [];
+foreach ($kysely->get_result() as $row)
+{
+    $array[] = $row['uni'];
+}
+print_r($array);
+*/
 ?>
 
 <br>
 <br>
 <br>
-<main>
-<div class="two-thirds column" style="margin-top: 10%, margin-left: 10%" >
+
+
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
-<div id='Kahvin ja alkoholin määrä' style="width:60%;height:600px;"></div>
+<div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
@@ -117,7 +171,7 @@ Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout);
 
 
 <h2>Tässä käyttäjän leposykkeet</h2>
-<div id = 'leposyke' style="width:60%;height:600px;"></div>
+<div id = 'leposyke' style="width:85%;height:600px;"></div>
 <script>
 
 function makeplot() {
@@ -185,6 +239,7 @@ function makePlotly( x, y){
 */
 </script>
   </div>
+  
 </main>
 
 

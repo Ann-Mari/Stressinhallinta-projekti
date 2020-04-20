@@ -4,18 +4,32 @@ include("./includes/iheader.php");
 include('./includes/inavindex.php');
 ?>
 <?php
+
 try {
   $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
   $kysely = $DBH->prepare($sql);
   $kysely->execute();
   $tulos=$kysely->fetch();
- // print_r($tulos);
+  print_r($tulos);
 
 } catch (PDOException $e) {
   die("VIRHE: " . $e->getMessage());
 }
-/*$jsonArray = array();
-if ($result->5 > 0) {
+
+
+
+$js_array = "[";
+$result = mysql_query("päivän fiilis");
+
+while( $row= mysql_fetch_array($result, MYSQL_NUM)){
+  $js_array .= $row[];
+}
+$js_array{strlen($js_array)-1 } = ']';
+echo "var db_array = $js_array;";
+
+/*
+$jsonArray = array();
+if ($result-> num_rows > 0) {
   
   while($row = $result->fetch_assoc()) {
     $jsonArrayItem = array();
@@ -30,7 +44,21 @@ if ($result->5 > 0) {
 }
 header('Content-type: application/json');
 
-echo json_encode($jsonArray);*/
+echo json_encode($jsonArray);
+--------------------------------
+*/
+/*
+echo("<table>
+<tr>
+  <th>Kahvikuppien määrä</th>
+  </tr>");
+
+  while ($row=$kysely->fetch()){
+    echo("<tr><td>".$row["kofeiini"]."</td>
+    </tr>");
+  }
+echo("</table>");
+*/
 ?>
 
 <br>

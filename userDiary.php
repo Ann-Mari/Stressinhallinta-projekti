@@ -76,12 +76,14 @@ var trace4 = {
 };
 
 
-
 var data = [trace1, trace2, trace3, trace4];
 
-Plotly.newPlot('Kahvin ja alkoholin määrä', data);
+Plotly.newPlot('Kahvin ja alkoholin määrä', data
+{title: 'Kahvi, alkoholi ja uni'});
 
 </script>
+
+
 
 <h2>Tässä käyttäjän leposykkeet</h2>
 <div id = 'leposyke' style="width:60%;height:600px;"></div>
@@ -114,7 +116,7 @@ function makePlotly( x, y, standard_deviation ){
   }];
 
   Plotly.newPlot('leposyke', traces,
-    {title: 'Plotting CSV data from AJAX call'});
+    {title: 'Leposyke data csv tiedostosta'});
 };
   makeplot();
 

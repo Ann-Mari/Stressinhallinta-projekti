@@ -26,9 +26,7 @@ $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
-//$tulos=$kysely->fetch();
-//print_r($tulos);
-//WHERE personalID = :personalID
+
 echo("<table>
 <tr>
   <th>Päivän fiilis</th>
@@ -47,80 +45,7 @@ echo("<table>
     </tr>");
   }
 echo("</table>");
-/*
-  echo("<table>
-  <tr>
-    <th>Unen määrä</th>
-    </tr>");
-  
-    while ($row=$kysely->fetch()){
-      echo("<tr><td>".$row["uni"]."</td>
-      </tr>");
-    }
-  echo("</table>");
 
-
-*/
-
-/*
-$js_array = "[";
-$result = mysql_query("päivän fiilis");
-
-while( $row= mysql_fetch_array($result, MYSQL_NUM)){
-  $js_array .= $row[];
-}
-$js_array{strlen($js_array)-1 } = ']';
-echo "var db_array = $js_array;";
-*/
-/*
-$jsonArray = array();
-if ($result-> num_rows > 0) {
-  
-  while($row = $result->fetch_assoc()) {
-    $jsonArrayItem = array();
-    $jsonArrayItem['Paivan_Fiilis'] = $row['paivanFiilis'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['kofeiini'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['alkoholi'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['uni'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['unenLaatu'];
-    
-    array_push($jsonArray, $jsonArrayItem);
-  }
-}
-//header('Content-type: application/json');
-echo json_encode($jsonArray);
-?>
-<br>
-<br>
-<br>
-<br>
-<?php
-
-
-echo("<table>
-<tr>
-  <th>Unen määrä</th>
-  </tr>");
-
-  while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["uni"]."</td>
-    </tr>");
-  }
-echo("</table>");
-
-/*
-
-----------------
-
-$kysely = $DBH->prepare("SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()");
-$kysely->execute();
-$array = [];
-foreach ($kysely->get_result() as $row)
-{
-    $array[] = $row['uni'];
-}
-print_r($array);
-*/
 ?>
 
 <br>
@@ -131,6 +56,61 @@ print_r($array);
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
+
+<script>
+//var kahviArray;
+/*
+$data2['personalID'] = $currentpersonalID;
+console.log('testi1');
+$sql2 = "SELECT kofeiini FROM Paivan_Fiilis WHERE personalID = :personalID";
+console.log('testi2');
+$kysely2 = $DBH->prepare($sql2);
+console.log('testi3');
+$kysely2->execute($data2);
+console.log('testi4');
+//$tulos2=$kysely2->fetch();
+//$dbArray=$tulos2[0];
+
+$kahviArray = array(
+  $kysely2->fetch()
+);
+console.log('testi5');
+*/
+//----------------------------------------------------------------------------------
+
+<?php
+
+
+var_dump($_SESSION);
+$data2['personalID'] = $currentpersonalID;
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$kysely = $DBH->prepare($sql);
+$kysely->execute($data2);
+
+$paivanAr= array1();
+$kofeiiniAr = arrray2();
+
+echo(
+  while ($row=$kysely->fetch()){
+    echo($paivanAr[] = $row["paivanFiilis"].
+    .$row["kofeiini"].
+    .$row["alkoholi"].
+    .$row["uni"].
+    .$row["unenLaatu"].
+    );
+  });
+
+
+
+?>
+
+//var passedArray =<?php/* echo json_encode($kahviArray);*/?>;
+
+//for(var i=0; i= < passedArray.length; i++){
+ // document.write(passedArray[i]);
+//}
+
+</script>
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
 var trace1 = {

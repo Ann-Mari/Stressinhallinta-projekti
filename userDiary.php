@@ -57,29 +57,9 @@ echo("</table>");
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
 
-<script>
-//var kahviArray;
-/*
-$data2['personalID'] = $currentpersonalID;
-console.log('testi1');
-$sql2 = "SELECT kofeiini FROM Paivan_Fiilis WHERE personalID = :personalID";
-console.log('testi2');
-$kysely2 = $DBH->prepare($sql2);
-console.log('testi3');
-$kysely2->execute($data2);
-console.log('testi4');
-//$tulos2=$kysely2->fetch();
-//$dbArray=$tulos2[0];
 
-$kahviArray = array(
-  $kysely2->fetch()
-);
-console.log('testi5');
-*/
-//----------------------------------------------------------------------------------
 
 <?php
-
 
 var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
@@ -87,32 +67,34 @@ $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiil
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
-$paivanAr= array1();
-$kofeiiniAr = arrray2();
+$paivanAr= array();
+$kofeiiniAr = array();
 
-echo(
   while ($row=$kysely->fetch()){
-    echo($paivanAr[] = $row["paivanFiilis"].
-    .$row["kofeiini"].
-    .$row["alkoholi"].
-    .$row["uni"].
-    .$row["unenLaatu"].
+    echo($paivanAr[] = $row["paivanFiilis"]
+    //$row["kofeiini"].
+   // $row["alkoholi"].
+    //$row["uni"].
+    //$row["unenLaatu"]
     );
-  });
+  
 
 
 
 ?>
 
-//var passedArray =<?php/* echo json_encode($kahviArray);*/?>;
-
-//for(var i=0; i= < passedArray.length; i++){
- // document.write(passedArray[i]);
-//}
-
 </script>
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
+var trace = {
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+  y: [<?php echo (json_encode($paivanAr));?>],
+  type: 'scatter',
+  name: 'Päivän fiilis'
+  
+};
+
+
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [4, 6, 4, 3, 2, 2, 4],
@@ -146,7 +128,8 @@ var trace4 = {
 };
 
 
-var data = [trace1, trace2, trace3, trace4];
+
+var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'

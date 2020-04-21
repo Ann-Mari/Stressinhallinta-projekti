@@ -21,7 +21,6 @@ $kysely1->execute($data1);
 $tulos1=$kysely1->fetch();
 $currentpersonalID=$tulos1[0];
 
-var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
@@ -61,7 +60,6 @@ echo("</table>");
 
 <?php
 
-var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
@@ -77,13 +75,10 @@ $kofeiiniAr = array();
     //$row["uni"].
     //$row["unenLaatu"]
     );
-  
-
-
+  }
 
 ?>
 
-</script>
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
 var trace = {
@@ -176,44 +171,8 @@ function makePlotly( x, y, standard_deviation ){
 };
   makeplot();
 
-/*
-function makeplot() {
-  Plotly.d3.csv('leposyke.csv', function(data){ processData(data) } );
-
-};
-
-function processData(allRows) {
-
-  console.log(allRows);
-  var x = [], y = [];
-
-  for (var i=0; i<allRows.length; i++) {
-    row = allRows[i];
-    x.push( row['Päivämäärä'] );
-    y.push( row['Leposyke'] );
-  }
-  console.log( 'Päivät',x, 'Syke',y, 'SD');
-  makePlotly( x, y);
-}
-
-function makePlotly( x, y){
-  var plotDiv = document.getElementById("leposyke");
-  var traces = [{
-    x: x,
-    y: y
-  }];
-
-  Plotly.newPlot('leposyke', traces,
-    {title: 'Plotting CSV data from AJAX call'});
-};
-  makeplot();
-*/
 </script>
   </div>
-  
 </main>
-
-
-
 </body>
 </html>

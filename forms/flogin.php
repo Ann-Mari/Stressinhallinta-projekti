@@ -1,3 +1,4 @@
+<div class="container">
 <fieldset><legend>Sisäänkirjautuminen</legend>
 <form method="post">
   <p>
@@ -13,3 +14,4 @@
   </p>
 </form>
 </fieldset>
+</div>

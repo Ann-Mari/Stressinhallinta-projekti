@@ -14,8 +14,16 @@ include('./includes/inavindex.php');
 <h2>Käyttäjän tilastot</h2>
 <p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
 <?php
+$data1['email'] = $_SESSION['semail'];
+$sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
+$kysely1=$DBH->prepare($sql1);
+$kysely1->execute($data1);
+$tulos1=$kysely1->fetch();
+$currentpersonalID=$tulos1[0];
+
+var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis";
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 //$tulos=$kysely->fetch();

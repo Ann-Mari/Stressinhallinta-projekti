@@ -2,7 +2,7 @@
 <?php include("forms/flogin.php"); ?>
 
 <?php include("config/config.php");?>
-
+<div class="container">
 <?php
 //Lähteenä: Lab6 ja Karin diat
 //Lomakkeen submit painettu?
@@ -63,3 +63,4 @@ if(isset($_SESSION['swarningInput'])){
   echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
 }
 ?>
+</div>

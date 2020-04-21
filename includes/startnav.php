@@ -1,3 +1,7 @@
+<div class="container">
+<br>
+<br>
+<br>
 <?php
 //Lähteenä Lab6 ja Karin diat
 //Käyttäjän tila
@@ -10,3 +14,4 @@ if($_SESSION['sloggedIn']=="yes"){
     <?php
 }
 ?>
+</div>

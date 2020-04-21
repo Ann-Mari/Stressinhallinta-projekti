@@ -6,6 +6,7 @@ include('./includes/inavindex.php');
 
 
 <main>
+<div class="container">
 <?php
 //etsittiin netistä hyvä geneerinen profiilikuva placeholderiksi
 ?>
@@ -76,7 +77,7 @@ if (count($_POST) > 0) {
   } else
       $message = "Current Password is not correct";*/
 ?>
-
+</div>
 </main>
 
 </body>

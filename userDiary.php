@@ -26,9 +26,7 @@ $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
-//$tulos=$kysely->fetch();
-//print_r($tulos);
-//WHERE personalID = :personalID
+
 echo("<table>
 <tr>
   <th>Päivän fiilis</th>
@@ -47,80 +45,7 @@ echo("<table>
     </tr>");
   }
 echo("</table>");
-/*
-  echo("<table>
-  <tr>
-    <th>Unen määrä</th>
-    </tr>");
-  
-    while ($row=$kysely->fetch()){
-      echo("<tr><td>".$row["uni"]."</td>
-      </tr>");
-    }
-  echo("</table>");
 
-
-*/
-
-/*
-$js_array = "[";
-$result = mysql_query("päivän fiilis");
-
-while( $row= mysql_fetch_array($result, MYSQL_NUM)){
-  $js_array .= $row[];
-}
-$js_array{strlen($js_array)-1 } = ']';
-echo "var db_array = $js_array;";
-*/
-/*
-$jsonArray = array();
-if ($result-> num_rows > 0) {
-  
-  while($row = $result->fetch_assoc()) {
-    $jsonArrayItem = array();
-    $jsonArrayItem['Paivan_Fiilis'] = $row['paivanFiilis'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['kofeiini'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['alkoholi'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['uni'];
-    $jsonArrayItem['Paivan_Fiilis'] = $row['unenLaatu'];
-    
-    array_push($jsonArray, $jsonArrayItem);
-  }
-}
-//header('Content-type: application/json');
-echo json_encode($jsonArray);
-?>
-<br>
-<br>
-<br>
-<br>
-<?php
-
-
-echo("<table>
-<tr>
-  <th>Unen määrä</th>
-  </tr>");
-
-  while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["uni"]."</td>
-    </tr>");
-  }
-echo("</table>");
-
-/*
-
-----------------
-
-$kysely = $DBH->prepare("SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = CURRENT_USER()");
-$kysely->execute();
-$array = [];
-foreach ($kysely->get_result() as $row)
-{
-    $array[] = $row['uni'];
-}
-print_r($array);
-*/
 ?>
 
 <br>
@@ -131,8 +56,45 @@ print_r($array);
 <p>Tämä on sinun päiväkirjasi</p>
 
 <p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
+
+
+
+<?php
+
+var_dump($_SESSION);
+$data2['personalID'] = $currentpersonalID;
+$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$kysely = $DBH->prepare($sql);
+$kysely->execute($data2);
+
+$paivanAr= array();
+$kofeiiniAr = array();
+
+  while ($row=$kysely->fetch()){
+    echo($paivanAr[] = $row["paivanFiilis"]
+    //$row["kofeiini"].
+   // $row["alkoholi"].
+    //$row["uni"].
+    //$row["unenLaatu"]
+    );
+  
+
+
+
+?>
+
+</script>
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
+var trace = {
+  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+  y: [<?php echo (json_encode($paivanAr));?>],
+  type: 'scatter',
+  name: 'Päivän fiilis'
+  
+};
+
+
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
   y: [4, 6, 4, 3, 2, 2, 4],
@@ -166,7 +128,8 @@ var trace4 = {
 };
 
 
-var data = [trace1, trace2, trace3, trace4];
+
+var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'

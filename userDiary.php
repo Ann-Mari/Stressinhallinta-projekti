@@ -21,7 +21,6 @@ $kysely1->execute($data1);
 $tulos1=$kysely1->fetch();
 $currentpersonalID=$tulos1[0];
 
-var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
@@ -61,7 +60,6 @@ echo("</table>");
 
 <?php
 
-var_dump($_SESSION);
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
@@ -70,25 +68,41 @@ $kysely->execute($data2);
 $paivanAr= array();
 $kofeiiniAr = array();
 
+//$paivat = array("1","2","4","5","6","7");
+
+
   while ($row=$kysely->fetch()){
-    echo($paivanAr[] = $row["paivanFiilis"]
+    $paivanAr[] = $row["paivanFiilis"];
     //$row["kofeiini"].
    // $row["alkoholi"].
     //$row["uni"].
     //$row["unenLaatu"]
-    );
-  
+  }
 
+$jsonEn = json_encode($data2);
 
+echo json_encode($paivanAr);
 
 ?>
 
-</script>
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
+
+/*
+-----------------------------
+var trace = [ [
+  "x" => $paivat,
+  "y" => $paivanAr,
+  "type" => "scatter"  
+] ];
+
+echo json_encode($trace);
+-------------------------------
+*/
+
 var trace = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [<?php echo (json_encode($paivanAr));?>],
+  y: [<?php echo ($paivanAr);?>],
   type: 'scatter',
   name: 'Päivän fiilis'
   
@@ -128,14 +142,13 @@ var trace4 = {
 };
 
 
-
 var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'
 };
 
-Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout);
+Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
 
 </script>
 
@@ -176,44 +189,8 @@ function makePlotly( x, y, standard_deviation ){
 };
   makeplot();
 
-/*
-function makeplot() {
-  Plotly.d3.csv('leposyke.csv', function(data){ processData(data) } );
-
-};
-
-function processData(allRows) {
-
-  console.log(allRows);
-  var x = [], y = [];
-
-  for (var i=0; i<allRows.length; i++) {
-    row = allRows[i];
-    x.push( row['Päivämäärä'] );
-    y.push( row['Leposyke'] );
-  }
-  console.log( 'Päivät',x, 'Syke',y, 'SD');
-  makePlotly( x, y);
-}
-
-function makePlotly( x, y){
-  var plotDiv = document.getElementById("leposyke");
-  var traces = [{
-    x: x,
-    y: y
-  }];
-
-  Plotly.newPlot('leposyke', traces,
-    {title: 'Plotting CSV data from AJAX call'});
-};
-  makeplot();
-*/
 </script>
   </div>
-  
 </main>
-
-
-
 </body>
 </html>

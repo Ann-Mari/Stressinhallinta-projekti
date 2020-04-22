@@ -34,6 +34,7 @@ element2.addEventListener('click', (evt) => {
             document.getElementById("ajaxText").innerHTML = textKolmas;
             document.getElementById("legText").innerHTML = "Jooga harjoitukset";
         });
+
 });
 
 //nappia painamalla haetaan kaikki meditaatioharjoitukset
@@ -49,4 +50,5 @@ element3.addEventListener('click', (evt) => {
             document.getElementById("ajaxText").innerHTML = data;
             document.getElementById("legText").innerHTML = "Meditaatio harjoitukset";
         });
+
 });

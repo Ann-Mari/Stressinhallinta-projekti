@@ -10,6 +10,7 @@ element1.addEventListener('click', (evt) => {
         .then((data) => {
             console.log(data);
             document.getElementById("ajaxText").innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +data + "' frameborder='0' allowfullscreen></iframe>";
+            document.getElementById("legText").innerHTML = "Kaikki harjoitukset";
         });
 });
 

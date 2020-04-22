@@ -79,76 +79,83 @@ $kofeiiniAr = array();
     //$row["unenLaatu"]
   }
 
-$jsonEn = json_encode($data2);
 
 echo json_encode($paivanAr);
+
+print_r($paivanAr);
 
 ?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
+
+
 <script>
 
-/*
------------------------------
-var trace = [ [
-  "x" => $paivat,
-  "y" => $paivanAr,
-  "type" => "scatter"  
-] ];
 
-echo json_encode($trace);
--------------------------------
-*/
+fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+.then((response) => {
+            return response.json();
+        })
 
-var trace = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [<?php echo ($paivanAr);?>],
-  type: 'scatter',
-  name: 'Päivän fiilis'
-  
-};
+        .then((vastaus) => { 
+            console.log("Vastaus: \n" + vastaus);
+            //trace=vastaus;
+            //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 
-
-var trace1 = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [4, 6, 4, 3, 2, 2, 4],
-  type: 'scatter',
-  name: 'Kahvikuppien määrä'
-  
-};
-
-var trace2 = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [0, 1, 0, 2, 4, 12, 0],
-  type: 'scatter',
-  name: 'Alkoholiannosten määrä'
-  
-};
-
-var trace3 = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [5, 7, 8, 9, 7, 8, 3],
-  type: 'scatter',
-  name: 'Unen laatu'
-  
-};
-
-var trace4 = {
-  x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [8, 7, 8, 8, 9, 8, 4],
-  type: 'bar',
-  name: 'Unen määrä (h)'
-  
-};
+          
+      var trace = {
+        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+        y: [],
+        type: 'scatter',
+        name: 'Päivän fiilis'
+        
+      };
 
 
-var data = [trace, trace1, trace2, trace3, trace4];
+      var trace1 = {
+        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+        y: [4, 6, 4, 3, 2, 2, 4],
+        type: 'scatter',
+        name: 'Kahvikuppien määrä'
+        
+      };
 
-var layout ={
-  title: 'Kahvi, alkoholi ja uni'
-};
+      var trace2 = {
+        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+        y: [0, 1, 0, 2, 4, 12, 0],
+        type: 'scatter',
+        name: 'Alkoholiannosten määrä'
+        
+      };
 
-Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
+      var trace3 = {
+        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+        y: [5, 7, 8, 9, 7, 8, 3],
+        type: 'scatter',
+        name: 'Unen laatu'
+        
+      };
+
+      var trace4 = {
+        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+        y: [8, 7, 8, 8, 9, 8, 4],
+        type: 'bar',
+        name: 'Unen määrä (h)'
+        
+      };
+
+
+      var data = [trace, trace1, trace2, trace3, trace4];
+
+      var layout ={
+        title: 'Kahvi, alkoholi ja uni'
+      };
+
+      Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
+
+    });
+            
+   
 
 </script>
 

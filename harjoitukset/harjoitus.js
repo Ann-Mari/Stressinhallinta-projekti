@@ -25,7 +25,7 @@ element2.addEventListener('click',  (evt) => {
         console.log(data);
         let obj = JSON.parse(data);
         let textKolmas="";
-        for(let i=0; i<3; i++){
+        for(let i=0; i<1; i++){
             //Käytetään Polarin alkuperäistä formaattia, 
             //jossa kaikki on yhden elementin taulukoita
             textKolmas += "<div class='piilo'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + obj[i].ID + "' frameborder='0' allowfullscreen></iframe></div><div class='piilo'>";

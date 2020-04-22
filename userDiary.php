@@ -98,20 +98,20 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
         })
 
         .then((vastaus) => { 
-            console.log("Vastaus: \n" + vastaus);
-            //trace=vastaus;
+            console.log("Vastaus: \n" + JSON.stringify(vastaus,undefined,2));
+            var trace=vastaus;
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
-
-          
+/*
+       
       var trace = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [],
+        y: [5,8,9,6,5,4,4],
         type: 'scatter',
         name: 'Päivän fiilis'
         
       };
-
-
+console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
+*/
       var trace1 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [4, 6, 4, 3, 2, 2, 4],

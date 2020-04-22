@@ -77,18 +77,34 @@ $kofeiiniAr = array();
     );
   }
 
+$jsonEn = json_encode($data2);
+
+$paivat = array();
+$paivat = [1,2,4,5,6,7]
+
 ?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
-var trace = {
+
+<?php 
+$trace = [ [
+  "x" => $paivat,
+  "y" => $paivanAr,
+  "type" => "bar"  
+] ];
+
+echo json_encode($trace);
+?>
+
+/*var trace = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [<?php echo (json_encode($paivanAr));?>],
+  y: [],
   type: 'scatter',
   name: 'Päivän fiilis'
   
 };
-
+*/
 
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
@@ -123,14 +139,14 @@ var trace4 = {
 };
 
 
-
-var data = [trace, trace1, trace2, trace3, trace4];
+//var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'
 };
-
-Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout);
+$.get(null, function(trace){
+Plotly.newPlot('Kahvin ja alkoholin määrä', trace, layout);
+ }, "json");
 
 </script>
 

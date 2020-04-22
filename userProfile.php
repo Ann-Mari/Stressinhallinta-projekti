@@ -56,9 +56,9 @@ if(isset($_POST['submitSalasana'])){
    unset($_SESSION['swarningInput']);
   
  
-  $STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");
+  /*$STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");
  /* $STH = $DBH->prepare("INSERT INTO userRegister (userPwd) VALUES (:uusiSalasana);");*/
-  $STH->execute($data);
+ /* $STH->execute($data);
   }
 }
 
@@ -76,6 +76,17 @@ if (count($_POST) > 0) {
       $message = "Password Changed";
   } else
       $message = "Current Password is not correct";*/
+
+if(isset($_POST['submitKuPa'])){
+
+  if(($_POST['givenHeight']<=150) && ($_POST['givenHeight'] >=2.5)){
+    $_SESSION['swarningInput']="Pituus ei ole laitettu oikein (pituus välillä 150-2.5 cm)";
+}else if(($_POST['givenWeight']>=45) && ($_POST['givenWeight'] >=250)){
+   $_SESSION['swarningInput']="Paino ei ole laitettu oikein (paino pitäisi olla 45-250 kg välillä)";
+ }else{
+ unset($_SESSION['swarningInput']);
+
+
 ?>
 </div>
 </main>

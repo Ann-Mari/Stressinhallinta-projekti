@@ -68,43 +68,46 @@ $kysely->execute($data2);
 $paivanAr= array();
 $kofeiiniAr = array();
 
+//$paivat = array("1","2","4","5","6","7");
+
+
   while ($row=$kysely->fetch()){
-    echo($paivanAr[] = $row["paivanFiilis"]
+    $paivanAr[] = $row["paivanFiilis"];
     //$row["kofeiini"].
    // $row["alkoholi"].
     //$row["uni"].
     //$row["unenLaatu"]
-    );
   }
 
 $jsonEn = json_encode($data2);
 
-$paivat = array();
-$paivat = [1,2,4,5,6,7]
+echo json_encode($paivanAr);
 
 ?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
 
-<?php 
-$trace = [ [
+/*
+-----------------------------
+var trace = [ [
   "x" => $paivat,
   "y" => $paivanAr,
-  "type" => "bar"  
+  "type" => "scatter"  
 ] ];
 
 echo json_encode($trace);
-?>
+-------------------------------
+*/
 
-/*var trace = {
+var trace = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [],
+  y: [<?php echo ($paivanAr);?>],
   type: 'scatter',
   name: 'Päivän fiilis'
   
 };
-*/
+
 
 var trace1 = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
@@ -139,14 +142,13 @@ var trace4 = {
 };
 
 
-//var data = [trace, trace1, trace2, trace3, trace4];
+var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'
 };
-$.get(null, function(trace){
-Plotly.newPlot('Kahvin ja alkoholin määrä', trace, layout);
- }, "json");
+
+Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
 
 </script>
 

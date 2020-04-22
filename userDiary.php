@@ -68,22 +68,41 @@ $kysely->execute($data2);
 $paivanAr= array();
 $kofeiiniAr = array();
 
+//$paivat = array("1","2","4","5","6","7");
+
+
   while ($row=$kysely->fetch()){
-    echo($paivanAr[] = $row["paivanFiilis"]
+    $paivanAr[] = $row["paivanFiilis"];
     //$row["kofeiini"].
    // $row["alkoholi"].
     //$row["uni"].
     //$row["unenLaatu"]
-    );
   }
+
+$jsonEn = json_encode($data2);
+
+echo json_encode($paivanAr);
 
 ?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 <script>
+
+/*
+-----------------------------
+var trace = [ [
+  "x" => $paivat,
+  "y" => $paivanAr,
+  "type" => "scatter"  
+] ];
+
+echo json_encode($trace);
+-------------------------------
+*/
+
 var trace = {
   x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-  y: [<?php echo (json_encode($paivanAr));?>],
+  y: [<?php echo ($paivanAr);?>],
   type: 'scatter',
   name: 'Päivän fiilis'
   
@@ -123,14 +142,13 @@ var trace4 = {
 };
 
 
-
 var data = [trace, trace1, trace2, trace3, trace4];
 
 var layout ={
   title: 'Kahvi, alkoholi ja uni'
 };
 
-Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout);
+Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
 
 </script>
 

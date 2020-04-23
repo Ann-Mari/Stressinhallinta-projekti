@@ -8,11 +8,10 @@ header("Content-Type: application/json; charset=UTF-8");
   '[{
 
     "ID": "iwgWzOoJ1EI" 
-},
-{
+}],
+[{
     "ID": "iwgWzOoJ1EI" 
-}
-]';
+}]';
 
 echo(json_encode($samplesPulseJSON));
   

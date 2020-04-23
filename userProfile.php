@@ -55,7 +55,8 @@ if(isset($_POST['submitSalasana'])){
    }else{
    unset($_SESSION['swarningInput']);
   
- 
+   }
+  }
   /*$STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");
  /* $STH = $DBH->prepare("INSERT INTO userRegister (userPwd) VALUES (:uusiSalasana);");*/
  /* $STH->execute($data);
@@ -86,7 +87,9 @@ if(isset($_POST['submitKuPa'])){
  }else{
  unset($_SESSION['swarningInput']);
 
+ }
 
+}
 ?>
 </div>
 </main>

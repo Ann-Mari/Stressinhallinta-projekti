@@ -2,6 +2,10 @@
 <?php
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
+//Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
+// https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
+//https://phpgurukul.com/change-password-php/
+//https://www.studentstutorial.com/php/password-change
 ?>
 
 
@@ -54,6 +58,37 @@ if(isset($_POST['submitSalasana'])){
     $_SESSION['swarningInput']="Annettu salasana ei ole sama toista kertaa annettaessa";
    }else{
    unset($_SESSION['swarningInput']);
+
+        $password = $_POST['givenPassword'];
+        $newpassword = $_POST['uusiSalasana'];
+        $confirmnewpassword = $_POST['uusiSalasanaVahvistus'];
+        /*$added='#â‚¬%&&/'; //suolataan annettu salasana
+        $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);*/
+        $sql2=("SELECT userPwd FROM userRegister WHERE personalID='$currentpersonalID'");
+        $kysely2=$DBH->prepare($sql2);
+        $kysely2->execute();    			
+        $tulos2=$kysely2->fetch();
+        if(!$tulos2)
+        {
+        echo "Käyttäjä ei täsmää";
+        }
+        else if ($password!=$tulos2)
+        {
+        echo "Väärä salasana";
+        }
+        if($newpassword==$confirmnewpassword)
+        $sql2=("UPDATE userRegister SET userPwd='$newpassword' where personalID='$currentpersonalID'");
+        $kysely2=$DBH->prepare($sql2);
+        $kysely2->execute();
+        if($sql2)
+        {
+        echo "Congratulations You have successfully changed your password";
+        }
+       else
+        {
+       echo "Passwords do not match";
+       }
+      
   
    }
   }
@@ -86,6 +121,22 @@ if(isset($_POST['submitKuPa'])){
    $_SESSION['swarningInput']="Paino ei ole laitettu oikein (paino pitäisi olla 45-250 kg välillä)";
  }else{
  unset($_SESSION['swarningInput']);
+
+ $kunto = $_POST['annettuKuntotaso'];
+ $paino = $_POST['annettuPaino'];
+ 
+ $sql2=("UPDATE Personal SET userGeneral_condition='$kunto', userWeight='$paino' where userpersonalID='$currentpersonalID'");
+ $kysely2=$DBH->prepare($sql2);
+ $kysely2->execute();
+
+ if($sql2)
+ {
+ echo "Kuntotasosi ja painosi on vaihdettu";
+ }
+else
+ {
+echo "Tietoja ei pystytty päivittämään";
+}
 
  }
 

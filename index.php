@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-<link rel="stylesheet" href="./css/modal.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
 <?php
 include('./includes/iheader.php');
 //Lähteenä https://www.w3schools.com/howto/howto_css_modals.asp
@@ -43,8 +44,8 @@ include('./includes/iheader.php');
 <div id="myModal1" class="modal">
 
 <!-- Modal content -->
-<div class="modal-content1">
-<span class="close1">&times;</span>
+<div class="modal-content">
+<span class="close">&times;</span>
 <p>Päivän harjoitusohje</p>
 </div>
 
@@ -56,8 +57,8 @@ include('./includes/iheader.php');
 <div id="myModal2" class="modal">
 
 <!-- Modal content -->
-<div class="modal-content2">
-<span class="close2">&times;</span>
+<div class="modal-content">
+<span class="close">&times;</span>
 <p><?php include('forms/fpaivanFiilis.php');?></p>
 </div>
 
@@ -74,8 +75,8 @@ include('./includes/iheader.php');
        var btn2 = document.getElementById("myBtn2");
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("close")[0];
-      var span1 = document.getElementsByClassName("close1")[0];
-      var span2 = document.getElementsByClassName("close2")[0];
+      var span1 = document.getElementsByClassName("close")[1];
+      var span2 = document.getElementsByClassName("close")[2];
 
       // When the user clicks on the button, open the modal
       btn.onclick = function() {
@@ -106,18 +107,18 @@ include('./includes/iheader.php');
       modal.style.display = "none";
     }
   }
-   /* window1.onclick = function(event1) {
-      if (event1.target == modal1) {
+    window.onclick = function(event) {
+      if (event.target == modal1) {
       modal1.style.display = "none";
     }
   }
-    window1.onclick = function(event2) {
-      if (event2.target == modal2) {
+    window.onclick = function(event) {
+      if (event.target == modal2) {
       modal2.style.display = "none";
     }
- }  */    
+ }    
 </script>
-      
+     <!-- 
       <div id="kello">
           Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
           <?php
@@ -142,7 +143,7 @@ include('./includes/iheader.php');
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

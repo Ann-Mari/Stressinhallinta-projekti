@@ -21,18 +21,19 @@ if(isset($_POST['submitUser'])){
       $tulosOlio=$STH->fetch();
       //lomakkeelle annettu salasana + suola
     $givenPasswordAdded = $_POST['givenPassword'].$added; //$added löytyy cconfig.php
-      //$uusiSalasanadAdded = $_POST['uusiSalasana'].$added;
+    //$newpasswordadAdded = $_POST['uusiSalasana'].$added;
        //Löytyikö email kannasta?   
        if($tulosOlio!=NULL){
           //email löytyi
          // var_dump($tulosOlio);
-          if(password_verify($givenPasswordAdded,$tulosOlio->userPwd)){
-            //if(password_verify($uusiSalasanaAdded,$tulosOlio->userPwd))
+         if(password_verify($givenPasswordAdded,$tulosOlio->userPwd)){
+          //if(password_verify($newpasswordAdded,$tulosOlio->userPwd)){
               $_SESSION['sloggedIn']="yes";
               $_SESSION['sfirstName']=$tulosOlio->firstName;
               $_SESSION['slastName']=$tulosOlio->lastName;
             //  $_SESSION['suserEmail']=$tulosOlio->userEmail;
             $_SESSION['semail']=$tulosOlio->userEmail;
+          
               header("Location: index.php"); //Palataan pääsivulle kirjautuneena
           }else{
             $_SESSION['swarningInput']="Väärä salasana";

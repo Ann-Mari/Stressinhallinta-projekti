@@ -4,8 +4,7 @@ include("./includes/iheader.php");
 include('./includes/inavindex.php');
 //Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
 // https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
-//https://phpgurukul.com/change-password-php/
-//https://www.studentstutorial.com/php/password-change
+
 ?>
 
 
@@ -62,8 +61,9 @@ if(isset($_POST['submitSalasana'])){
         $password = $_POST['givenPassword'];
         $newpassword = $_POST['uusiSalasana'];
         $confirmnewpassword = $_POST['uusiSalasanaVahvistus'];
-        /*$added='#â‚¬%&&/'; //suolataan annettu salasana
-        $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);*/
+        $added='#â‚¬%&&/'; //suolataan annettu salasana
+        $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);
+       // if (count($_POST) > 0) {
         $sql2=("SELECT userPwd FROM userRegister WHERE personalID='$currentpersonalID'");
         $kysely2=$DBH->prepare($sql2);
         $kysely2->execute();    			
@@ -77,19 +77,20 @@ if(isset($_POST['submitSalasana'])){
         echo "Väärä salasana";
         }
         if($newpassword==$confirmnewpassword)
+        //if ($_POST["givenPassword"] == $tulos2["userPwd"]){
         $sql2=("UPDATE userRegister SET userPwd='$newpassword' where personalID='$currentpersonalID'");
         $kysely2=$DBH->prepare($sql2);
         $kysely2->execute();
         if($sql2)
         {
-        echo "Congratulations You have successfully changed your password";
+        echo "Salasananvaihto onnistui";
         }
        else
         {
-       echo "Passwords do not match";
+       echo "Salasanat eivät täsmää";
        }
+        
       
-  
    }
   }
   /*$STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");

@@ -6,6 +6,10 @@ session_start();
   
  //Tietojen haku tietokannasta
 
+
+
+
+
  $data1['email'] = $_SESSION['semail'];
  $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
  $kysely1=$DBH->prepare($sql1);
@@ -19,16 +23,22 @@ $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiil
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
+$paivat = array("Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai");
+$paivanFi = array();
 
-  $paivat = array("Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai");
-  $paivanAr = array();
-  while ($row=$kysely->fetch()){
-    $paivanAr[] = $row["paivanFiilis"];
+
+ while ($row=$kysely->fetch()){
+    $paivanFi[] = $row["paivanFiilis"];
+    //$paivanKo[] = $row["kofeiini"].
+   //$paivanAl[] = $row["alkoholi"].
+    //$paivanUn[] =$row["uni"].
+    // $paivanUl[] = $row["unenLaatu"]
   }
+  echo(json_encode($paivanFi));
 //if($_GET['paivat']==7)
   $fiilis = array( 
     "x" => $paivat,
-    "y" => $paivanAr,
+    "y" => $paivanFi,
     "type" => "scatter",
     "name" => 'Päivän fiilis'  
   ); 

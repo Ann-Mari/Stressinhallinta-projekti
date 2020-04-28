@@ -2,6 +2,7 @@
 <?php
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
+include("./includes/startnav.php");
 //Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
 // https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
 
@@ -142,6 +143,36 @@ echo "Tietoja ei pystytty päivittämään";
  }
 
 }
+
+$data3['userpersonalID'] = $currentpersonalID;
+$sql3 = "SELECT userAge, userGender, userHeight, userWeight, userStresslevel, userBackground, userGeneral_condition FROM Personal
+ WHERE userpersonalID = :userpersonalID";
+$kysely3=$DBH->prepare($sql3);
+$kysely3->execute($data3);                
+
+    echo("<table>
+         <tr>
+            <th>Ikä</th>
+      <th>sukupuoli</th>
+      <th>pituus</th>
+      <th>paino</th>
+      <th>Stressitaso</th>
+      <th>taustaa</th>
+      <th>kuntotaso</th>
+        </tr>");
+    
+        while    ($row=$kysely3->fetch()){    
+                echo("<tr><td>".$row["userAge"]."</td>
+                <td>".$row["userGender"]."</td>
+                <td>".$row["userHeight"]."</td>
+                <td>".$row["userWeight"]."</td>
+                <td>".$row["userStresslevel"]."</td>
+                <td>".$row["userBackground"]."</td>
+                <td>".$row["userGeneral_condition"]."</td></tr>");
+        }
+    
+  echo("</table>");
+  
 ?>
 </div>
 </main>

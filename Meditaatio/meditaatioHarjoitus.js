@@ -1,20 +1,33 @@
-//hae tietokannasta harjoitusten lukumäärä
-//SELECT COUNT(harjoituksetID) FROM harjoitukset;
-//saadusta määrästä nosta randomisoitu arvo
-//var min= 0;
-//var max=SELECT COUNT(harjoituksetID) FROM harjoitukset;
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+/*Jos sessiomuuttujaa ei ole käynnistetään pvHarjoitus joka randomisoi numeron
+*Randomisoidulla numerolla valitaan kyseisen session harjoitus
+*tarkoituksena estää päivän harjoituksen vaihtuminen jokaisen sivun päivityksen yhteydessä
+*/
+function pvHarjoitus() {
+  var harjoitus;
+  var rnd = Math.floor(Math.random() * 10);
+  console.log(rnd+" on harjoituksen numero");
+  //haetaan harjoitukset kansiosta sinne tehty lista
+  //ilman nappia, katotaan toimiiko tällein, tästä puuttuu teknisesti
+  var kHarjoitus= Array[
+  "iwgWzOoJ1EI",
+  "Qe-25gXKkdo",
+  "mTlqAv2ApkE",
+  "41Frx0YOGDM",
+  "wsMvCuXETSU",
+  "s-ZA5J67KJM",
+  "hpbVRzETA9E",
+  "BFub-V365iI",
+  "1qiV2RX5UwU",
+  "-q9diKKQ-SU" 
+  ];
+  //loopilla käydään läpi lista
+  for (let i = 0; i <= 10; i++) {
+    //jos i on sama kuin rnd-numero asetetaan harjoitusmuuttujaan 
+    if (i == rnd) {
+      harjoitus = kHarjoitus[i];
+    }
   }
-//hae tietokannasta arvoon liittyvä youtubevideon pääte
-//SELECT harjoitusLinkki FROM harjoitukset WHERE harjoituksetID randomArvo;
-//aseta pääte var=harjoitus joka palautetaan meditaatioEtusivuHarjoitus.php tiedostoon ja siten saadaan etusivun harjoitus
-//tallennetaan tämä sessio muuttujaan jolloin harjoitus ei vaihdu ellei sessio keskeydy
-//eli ylläoleva looppi toteutuu vain kerran kirjautumisen yhteydessä
 
-function pvHarjoitus(){
-    var harjoitus = "tgbNymZ7vqY";
-    return harjoitus;
+  //)
+  return harjoitus;
 }

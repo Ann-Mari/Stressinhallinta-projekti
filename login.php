@@ -21,7 +21,7 @@ if(isset($_POST['submitUser'])){
       $tulosOlio=$STH->fetch();
       //lomakkeelle annettu salasana + suola
     $givenPasswordAdded = $_POST['givenPassword'].$added; //$added löytyy cconfig.php
-    //$newpasswordadAdded = $_POST['uusiSalasana'].$added;
+    //$newpasswordAdded = $_POST['uusiSalasana'].$added;
        //Löytyikö email kannasta?   
        if($tulosOlio!=NULL){
           //email löytyi

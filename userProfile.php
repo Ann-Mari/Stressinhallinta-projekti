@@ -62,9 +62,9 @@ if(isset($_POST['submitSalasana'])){
         $password = $_POST['givenPassword'];
         $newpassword = $_POST['uusiSalasana'];
         $confirmnewpassword = $_POST['uusiSalasanaVahvistus'];
-        $added='#â‚¬%&&/'; //suolataan annettu salasana
-        $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);
-       // if (count($_POST) > 0) {
+       // $added='#â‚¬%&&/'; //suolataan annettu salasana
+       // $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);
+        //if (count($_POST) > 0) {
         $sql2=("SELECT userPwd FROM userRegister WHERE personalID='$currentpersonalID'");
         $kysely2=$DBH->prepare($sql2);
         $kysely2->execute();    			
@@ -90,8 +90,8 @@ if(isset($_POST['submitSalasana'])){
         {
        echo "Salasanat eivät täsmää";
        }
-        
       
+        
    }
   }
   /*$STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");

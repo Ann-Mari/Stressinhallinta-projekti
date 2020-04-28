@@ -1,17 +1,19 @@
 <?php
 session_start();
 
+include("../config/config.php");
+
   header("Access-Control-Allow-Origin: *");
   header("Content-Type: application/json; charset=UTF-8");
   
  //Tietojen haku tietokannasta
 
 
-
-
-
  $data1['email'] = $_SESSION['semail'];
+ 
+
  $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
+
  $kysely1=$DBH->prepare($sql1);
  $kysely1->execute($data1);
  $tulos1=$kysely1->fetch();
@@ -34,7 +36,7 @@ $paivanFi = array();
     //$paivanUn[] =$row["uni"].
     // $paivanUl[] = $row["unenLaatu"]
   }
-  echo(json_encode($paivanFi));
+
 //if($_GET['paivat']==7)
   $fiilis = array( 
     "x" => $paivat,

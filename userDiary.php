@@ -97,7 +97,7 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
         })
 
         .then((vastaus) => { 
-            console.log("fiilis: \n" + JSON.stringify(vastaus,undefined,2));
+            console.log("vastaus: \n" + JSON.stringify(vastaus,undefined,2));
             var trace=vastaus;
 
             

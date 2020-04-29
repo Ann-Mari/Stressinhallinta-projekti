@@ -2,6 +2,10 @@
 <?php
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
+include("./includes/startnav.php");
+//Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
+// https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
+
 ?>
 
 
@@ -54,8 +58,42 @@ if(isset($_POST['submitSalasana'])){
     $_SESSION['swarningInput']="Annettu salasana ei ole sama toista kertaa annettaessa";
    }else{
    unset($_SESSION['swarningInput']);
-  
- 
+
+        $password = $_POST['givenPassword'];
+        $newpassword = $_POST['uusiSalasana'];
+        $confirmnewpassword = $_POST['uusiSalasanaVahvistus'];
+       // $added='#â‚¬%&&/'; //suolataan annettu salasana
+       // $newpassword = password_hash($_POST['uusiSalasana'].$added, PASSWORD_BCRYPT);
+        //if (count($_POST) > 0) {
+        $sql2=("SELECT userPwd FROM userRegister WHERE personalID='$currentpersonalID'");
+        $kysely2=$DBH->prepare($sql2);
+        $kysely2->execute();    			
+        $tulos2=$kysely2->fetch();
+        if(!$tulos2)
+        {
+        echo "Käyttäjä ei täsmää";
+        }
+        else if ($password!=$tulos2)
+        {
+        echo "Väärä salasana";
+        }
+        if($newpassword==$confirmnewpassword)
+        //if ($_POST["givenPassword"] == $tulos2["userPwd"]){
+        $sql2=("UPDATE userRegister SET userPwd='$newpassword' where personalID='$currentpersonalID'");
+        $kysely2=$DBH->prepare($sql2);
+        $kysely2->execute();
+        if($sql2)
+        {
+        echo "Salasananvaihto onnistui";
+        }
+       else
+        {
+       echo "Salasanat eivät täsmää";
+       }
+      
+        
+   }
+  }
   /*$STH = $DBH->prepare("INSERT INTO Personal (userGeneral_condition, userWeight) VALUES (:annettuKuntotaso, :annettuPaino);");
  /* $STH = $DBH->prepare("INSERT INTO userRegister (userPwd) VALUES (:uusiSalasana);");*/
  /* $STH->execute($data);
@@ -86,7 +124,55 @@ if(isset($_POST['submitKuPa'])){
  }else{
  unset($_SESSION['swarningInput']);
 
+ $kunto = $_POST['annettuKuntotaso'];
+ $paino = $_POST['annettuPaino'];
+ 
+ $sql2=("UPDATE Personal SET userGeneral_condition='$kunto', userWeight='$paino' where userpersonalID='$currentpersonalID'");
+ $kysely2=$DBH->prepare($sql2);
+ $kysely2->execute();
 
+ if($sql2)
+ {
+ echo "Kuntotasosi ja painosi on vaihdettu";
+ }
+else
+ {
+echo "Tietoja ei pystytty päivittämään";
+}
+
+ }
+
+}
+
+$data3['userpersonalID'] = $currentpersonalID;
+$sql3 = "SELECT userAge, userGender, userHeight, userWeight, userStresslevel, userBackground, userGeneral_condition FROM Personal
+ WHERE userpersonalID = :userpersonalID";
+$kysely3=$DBH->prepare($sql3);
+$kysely3->execute($data3);                
+
+    echo("<table>
+         <tr>
+            <th>Ikä</th>
+      <th>sukupuoli</th>
+      <th>pituus</th>
+      <th>paino</th>
+      <th>Stressitaso</th>
+      <th>taustaa</th>
+      <th>kuntotaso</th>
+        </tr>");
+    
+        while    ($row=$kysely3->fetch()){    
+                echo("<tr><td>".$row["userAge"]."</td>
+                <td>".$row["userGender"]."</td>
+                <td>".$row["userHeight"]."</td>
+                <td>".$row["userWeight"]."</td>
+                <td>".$row["userStresslevel"]."</td>
+                <td>".$row["userBackground"]."</td>
+                <td>".$row["userGeneral_condition"]."</td></tr>");
+        }
+    
+  echo("</table>");
+  
 ?>
 </div>
 </main>

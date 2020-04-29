@@ -1,3 +1,7 @@
+
+<body>
+<div class="container">
+
 <?php include("./includes/iheader.php");?>
 <?php include("forms/fcreateaccount.php");?>
 
@@ -71,3 +75,5 @@ if(isset($_SESSION['swarningInput'])){
   echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
 }
 ?>
+</body>
+</div>

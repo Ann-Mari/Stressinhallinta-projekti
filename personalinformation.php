@@ -1,3 +1,6 @@
+<body>
+<div class="container">
+
 <?php include("./includes/iheader.php");?>
 <?php include("includes/personalnav.php");?>
 <?php include("forms/fpersonalinformation.php");?>
@@ -61,9 +64,7 @@ if(isset($_POST['submitUser'])){
    }
 }
 }
-if(isset($_SESSION['swarningInput'])){
-    echo("<h2>".$_SESSION['swarningInput']."</h2>");
-}
+
 ?>
 
 <?php
@@ -113,4 +114,5 @@ if(isset($_SESSION['swarningInput'])){
 }
   
 ?>
-
+</div>
+</body>

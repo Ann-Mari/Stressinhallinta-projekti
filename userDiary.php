@@ -82,7 +82,6 @@ $kofeiiniAr = array();
 
 echo json_encode($paivanAr);
 
-print_r($paivanAr);
 
 ?>
 
@@ -98,8 +97,11 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
         })
 
         .then((vastaus) => { 
-            console.log("Vastaus: \n" + JSON.stringify(vastaus,undefined,2));
+            console.log("fiilis: \n" + JSON.stringify(vastaus,undefined,2));
             var trace=vastaus;
+
+            
+            
             
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 /*
@@ -152,7 +154,7 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         title: 'Kahvi, alkoholi ja uni'
       };
 
-      Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json";
+      Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json"; //piirretään graafi, data on kaikki piirrokset, layout on nimi
 
     });
             

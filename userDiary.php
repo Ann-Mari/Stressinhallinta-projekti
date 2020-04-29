@@ -96,9 +96,12 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
             return response.json();
         })
 
-        .then((fiilis) => { 
-            console.log("fiilis: \n" + JSON.stringify(fiilis,undefined,2));
-            var trace=fiilis;
+        .then((vastaus) => { 
+            console.log("fiilis: \n" + JSON.stringify(vastaus,undefined,2));
+            var trace=vastaus;
+
+            
+            
             
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 /*

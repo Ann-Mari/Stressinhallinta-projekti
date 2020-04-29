@@ -32,16 +32,22 @@ $paivanUl = array();
 
 
  while ($row=$kysely->fetch()){
-    $paivanFi[] = $row["paivanFiilis"].
+    $paivanFi[] = $row["paivanFiilis"];
+    /*
     $paivanKo[] = $row["kofeiini"].
     $paivanAl[] = $row["alkoholi"].
     $paivanUn[] =$row["uni"].
     $paivanUl[] = $row["unenLaatu"];
   }
-
+  var_dump($paivanFi);
   var_dump($paivanKo);
-
+  var_dump($paivanAl);
+  var_dump($paivanUn);
+  var_dump($paivanUl);
+*/
+}
 //if($_GET['paivat']==7)
+
   $fiilis = array( 
     "x" => $paivat,
     "y" => $paivanFi,
@@ -49,22 +55,22 @@ $paivanUl = array();
     "name" => 'Päivän fiilis'  
   ); 
   echo(json_encode($fiilis));
-
+/*
   $Pkofeiini = array( 
     "x" => $paivat,
     "y" => $paivanKo,
     "type" => "scatter",
     "name" => 'Kahvin määrä'  
-  ); 
-  echo(json_encode($Pkofeiini));
+  ), 
+ // echo(json_encode($Pkofeiini));
 
   $Palkoholi = array( 
     "x" => $paivat,
     "y" => $paivanAl,
     "type" => "scatter",
     "name" => 'Alkoholin määrä'  
-  ); 
-  echo(json_encode($Palkoholi));
+  ), 
+ // echo(json_encode($Palkoholi));
 
 
   $Puni = array( 
@@ -72,8 +78,8 @@ $paivanUl = array();
     "y" => $paivanUn,
     "type" => "bar",
     "name" => 'Unen määrä'  
-  ); 
-  echo(json_encode($Puni));
+  ), 
+  //echo(json_encode($Puni));
   
 
   $Ulaatu = array( 
@@ -81,7 +87,9 @@ $paivanUl = array();
     "y" => $paivanUl,
     "type" => "scatter",
     "name" => 'Unen laatu'  
-  ); 
-  echo(json_encode($Ulaatu));
+  ), 
+  //echo(json_encode($Ulaatu));
 
+
+*/
 ?>

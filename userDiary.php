@@ -89,6 +89,11 @@ echo json_encode($paivanAr);
 
 
 <script>
+var trace;
+var trace2;
+var trace3;
+var trace4;
+var trace5;
 
 
 fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
@@ -96,16 +101,54 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
             return response.json();
         })
 
-        .then((vastaus) => { 
-            console.log("vastaus: \n" + JSON.stringify(vastaus,undefined,2));
-            var trace=vastaus;
+        .then((fiilis) => { 
+            console.log("vastaus: \n" + JSON.stringify(fiilis,undefined,2));
+            var trace=fiilis;
 
             
             
+            return fetch('rest/haeKofeiini.php/?paivat=' + 7)
+            .then((response) =>{
+                    return response.json();
+            })
+
+
+            .then((kofeiini) =>{
+              console.log("vastaus2: \n" + JSON.stringify(kofeiini,undefined,2));
+              var trace2 = kofeiini;
+           
             
+              return fetch('rest/haeAlkoholi.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+              .then((response) => {
+            return response.json();
+        })
+
+        .then((alkoholi) => { 
+            console.log("vastaus: \n" + JSON.stringify(alkoholi,undefined,2));
+            var trace3=alkoholi;
+              
+            return fetch('rest/haeUnenL.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+              .then((response) => {
+            return response.json();
+        })
+
+        .then((unenL) => { 
+            console.log("vastaus: \n" + JSON.stringify(unenL,undefined,2));
+            var trace4=unenL;
+            
+
+            return fetch('rest/haeUni.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+              .then((response) => {
+            return response.json();
+        })
+
+        .then((uni) => { 
+            console.log("vastaus: \n" + JSON.stringify(uni,undefined,2));
+            var trace5=uni;
+
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
-/*
-       
+
+       /*
       var trace = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [5,8,9,6,5,4,4],
@@ -114,8 +157,9 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
         
       };
 console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
-*/
-      var trace1 = {
+
+
+      var trace2 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [4, 6, 4, 3, 2, 2, 4],
         type: 'scatter',
@@ -123,7 +167,7 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         
       };
 
-      var trace2 = {
+      var trace3 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [0, 1, 0, 2, 4, 12, 0],
         type: 'scatter',
@@ -131,7 +175,7 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         
       };
 
-      var trace3 = {
+      var trace4 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [5, 7, 8, 9, 7, 8, 3],
         type: 'scatter',
@@ -139,16 +183,16 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         
       };
 
-      var trace4 = {
+      var trace5 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [8, 7, 8, 8, 9, 8, 4],
         type: 'bar',
         name: 'Unen määrä (h)'
         
       };
+*/
 
-
-      var data = [trace, trace1, trace2, trace3, trace4];
+      var data = [trace, trace2, trace3, trace4, trace5];
 
       var layout ={
         title: 'Kahvi, alkoholi ja uni'
@@ -156,7 +200,13 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
 
       Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json"; //piirretään graafi, data on kaikki piirrokset, layout on nimi
 
+    });       
     });
+    });
+  });
+});
+            
+    
             
    
 

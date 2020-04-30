@@ -2,7 +2,7 @@
 <?php
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
-include("./includes/startnav.php");
+include("./includes/personalnav.php");
 //Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
 // https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
 

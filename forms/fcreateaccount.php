@@ -1,4 +1,4 @@
-
+<div style="margin-top:3%">
 <fieldset><legend>Rekisteröityminen</legend>
 <form method="post">
 <p>Etunimi
@@ -22,3 +22,5 @@
   </p>
   </form>
   </fieldset> 
+</div>
+

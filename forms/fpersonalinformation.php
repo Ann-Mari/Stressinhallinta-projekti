@@ -1,3 +1,5 @@
+
+<div style="margin-top:3%">
 <fieldset><legend>Henkilötietojen muokkaus</legend>
 <form method="post">
   <p>
@@ -36,3 +38,4 @@
   </p>
 </form>
 </fieldset>
+</div>

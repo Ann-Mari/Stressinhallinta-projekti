@@ -1,0 +1,31 @@
+.center{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding:30px;
+}
+a:link, a:visited {
+    background-color: #37644B;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: #37644B;
+  }
+  .box{
+    height: 200px;
+    width: 340px;
+    border: 1px solid  #37644B;
+    color: aliceblue;
+    padding-left: 45px;
+    
+  }
+  #green{
+    background-color:rgba(55, 100, 75, 0.151) ;
+  }

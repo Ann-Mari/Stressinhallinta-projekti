@@ -1,4 +1,10 @@
-<div class="container">
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/startnav.css">
+</head>
+<body>
+<div class="center">
+<div class="box" id="green">  
 <br>
 <br>
 <br>
@@ -15,3 +21,6 @@ if($_SESSION['sloggedIn']=="yes"){
 }
 ?>
 </div>
+</div>
+</body>
+</html>

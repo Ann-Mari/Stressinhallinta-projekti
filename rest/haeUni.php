@@ -35,7 +35,7 @@ $Puni = array(
     "x" => $paivat,
     "y" => $paivanUn,
     "type" => "bar",
-    "name" => 'Unenn määrä'  
+    "name" => 'Unen määrä'  
 );
 echo(json_encode($Puni));
 

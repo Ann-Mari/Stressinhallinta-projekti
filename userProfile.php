@@ -2,15 +2,14 @@
 <?php
 include("./includes/iheader.php");
 include('./includes/inavindex.php');
-include("./includes/personalnav.php");
 //Lähteenä Lab6 ja Karin diat. Tietokantaan yhdistämisen lähteenä oli
 // https://stackoverflow.com/questions/15510042/changing-a-password-php-mysql/51096636
 
 ?>
+<body>
+<div class="container" style="margin-top:3%">
 
-
-<main>
-<div class="container">
+<?php include("./includes/personalnav.php");?>
 <?php
 //etsittiin netistä hyvä geneerinen profiilikuva placeholderiksi
 ?>
@@ -145,7 +144,8 @@ $kysely3->execute($data3);
   
 ?>
 </div>
-</main>
+
+
 
 </body>
 

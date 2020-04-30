@@ -127,8 +127,25 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
             console.log("vastaus: \n" + JSON.stringify(alkoholi,undefined,2));
             var trace3=alkoholi;
               
-           
+            return fetch('rest/haeUnenL.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+              .then((response) => {
+            return response.json();
+        })
+
+        .then((unenL) => { 
+            console.log("vastaus: \n" + JSON.stringify(unenL,undefined,2));
+            var trace4=unenL;
             
+
+            return fetch('rest/haeUni.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+              .then((response) => {
+            return response.json();
+        })
+
+        .then((uni) => { 
+            console.log("vastaus: \n" + JSON.stringify(uni,undefined,2));
+            var trace5=uni;
+
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 
        /*
@@ -157,7 +174,7 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         name: 'Alkoholiannosten määrä'
         
       };
-*/
+
       var trace4 = {
         x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
         y: [5, 7, 8, 9, 7, 8, 3],
@@ -173,7 +190,7 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
         name: 'Unen määrä (h)'
         
       };
-
+*/
 
       var data = [trace, trace2, trace3, trace4, trace5];
 
@@ -186,6 +203,8 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
     });       
     });
     });
+  });
+});
             
     
             

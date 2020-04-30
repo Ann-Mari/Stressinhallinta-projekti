@@ -21,7 +21,7 @@ function pvHarjoitus() {
   "-q9diKKQ-SU" 
   ];
   //loopilla käydään läpi lista
-  for (let i = 0; i <= 10; i++) {
+  for (var i = 0; i <= 10; i++) {
     //jos i on sama kuin rnd-numero asetetaan harjoitusmuuttujaan 
     if (i == rnd) {
       harjoitus = kHarjoitus[i];

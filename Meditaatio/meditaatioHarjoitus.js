@@ -25,9 +25,10 @@ function pvHarjoitus() {
     //jos i on sama kuin rnd-numero asetetaan harjoitusmuuttujaan 
     if (i == rnd) {
       harjoitus = kHarjoitus[i];
+
     }
   }
 
   //)
-  return harjoitus;
+  return "<iframe width='50%'  src='https://www.youtube.com/embed/"+harjoitus+"' frameborder='0' allowfullscreen></iframe>";
 }

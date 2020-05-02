@@ -46,6 +46,7 @@ element2.addEventListener('click', (evt) => {
             document.getElementById("legText").innerHTML = "Jooga harjoitukset";
         });
 
+
 });
 
 //nappia painamalla haetaan kaikki meditaatioharjoitukset

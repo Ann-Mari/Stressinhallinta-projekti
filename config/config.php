@@ -19,4 +19,4 @@ try {     //Avataan yhteys tietokantaan ($DBH on nyt  yhteysolio, nimi vapaasti 
             //Kirjoitetaan mahdollinen virheviesti tiedostoon
     file_put_contents('log/DBErrors.txt', 'Connection: '.$e->getMessage()."\n", FILE_APPEND);
 } 
-?>
+?> 

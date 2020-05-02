@@ -4,16 +4,19 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-  $samplesPulseJSON =
-  '[{
+  $joogaHarjoitukset =
+  '[
+    "iwgWzOoJ1EI",
+    "Qe-25gXKkdo",
+    "mTlqAv2ApkE",
+    "41Frx0YOGDM",
+    "wsMvCuXETSU",
+    "s-ZA5J67KJM",
+    "hpbVRzETA9E"    
+   ]';
 
-    "ID": "iwgWzOoJ1EI" 
-},
-{
-    "ID": "iwgWzOoJ1EI" 
-}
-]';
 
-echo(json_encode($samplesPulseJSON));
+
+echo(json_encode($joogaHarjoitukset));
   
 ?>

@@ -7,10 +7,19 @@ element1.addEventListener('click', (evt) => {
             console.log("painettu Kaikki");
             return response.json();
         })
-        .then((data) => {
-            console.log(data);
-            document.getElementById("ajaxText").innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +data + "' frameborder='0' allowfullscreen></iframe>";
-            document.getElementById("legText").innerHTML = "Kaikki harjoitukset";
+            .then((data) => {
+                console.log(data);
+                let obj = JSON.parse(data);
+                console.log(obj.lenght);
+                let textEka = "";
+                for (let i = 0; i < 10; i++) {
+                    console.log(i);
+                    //Käytetään Polarin alkuperäistä formaattia, 
+                    //jossa kaikki on yhden elementin taulukoita
+                    textEka += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
+                }
+                document.getElementById("ajaxText").innerHTML = textEka;
+                document.getElementById("legText").innerHTML = "Kaikki harjoitukset";
         });
 });
 
@@ -25,15 +34,18 @@ element2.addEventListener('click', (evt) => {
         .then((data) => {
             console.log(data);
             let obj = JSON.parse(data);
-            let textKolmas = "";
-            for (let i = 0; i < 5; i++) {
+            console.log(obj.lenght);
+            let textToinen = "";
+            for (let i = 0; i < 7; i++) {
+                console.log(i);
                 //Käytetään Polarin alkuperäistä formaattia, 
                 //jossa kaikki on yhden elementin taulukoita
-                textKolmas += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i].ID +"' frameborder='0' allowfullscreen></iframe>";
+                textToinen += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
             }
-            document.getElementById("ajaxText").innerHTML = textKolmas;
+            document.getElementById("ajaxText").innerHTML = textToinen;
             document.getElementById("legText").innerHTML = "Jooga harjoitukset";
         });
+
 
 });
 
@@ -45,10 +57,19 @@ element3.addEventListener('click', (evt) => {
             console.log("painettu Meditaatio");
             return response.json();
         })
-        .then((data) => {
-            console.log(data);
-            document.getElementById("ajaxText").innerHTML = data;
-            document.getElementById("legText").innerHTML = "Meditaatio harjoitukset";
+            .then((data) => {
+                console.log(data);
+                let obj = JSON.parse(data);
+                console.log(obj.lenght);
+                let textKolmas = "";
+                for (let i = 0; i < 3; i++) {
+                    console.log(i);
+                    //Käytetään Polarin alkuperäistä formaattia, 
+                    //jossa kaikki on yhden elementin taulukoita
+                    textKolmas += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
+                }
+                document.getElementById("ajaxText").innerHTML = textKolmas;
+                document.getElementById("legText").innerHTML = "Meditaatio harjoitukset";
         });
 
 });

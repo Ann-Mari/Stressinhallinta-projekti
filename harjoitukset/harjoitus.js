@@ -25,6 +25,7 @@ element1.addEventListener('click', (evt) => {
 
 //nappia jooga painamalla haetaan kaikki joogaharjoitukset
 const element2 = document.querySelector('#btnJooga');
+
 element2.addEventListener('click', (evt) => {
     fetch('harjoitukset/ajax/jooga.php')
         .then((response) => {
@@ -45,8 +46,6 @@ element2.addEventListener('click', (evt) => {
             document.getElementById("ajaxText").innerHTML = textToinen;
             document.getElementById("legText").innerHTML = "Jooga harjoitukset";
         });
-
-
 });
 
 //nappia painamalla haetaan kaikki meditaatioharjoitukset

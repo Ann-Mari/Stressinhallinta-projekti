@@ -11,8 +11,13 @@ include('./includes/inavindex.php');
 
 <div class ="container">
 
-<h2>Käyttäjän tilastot</h2>
-<p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
+<h2>Päiväkirja</h2>
+<br>
+<br>
+<br>
+
+
+<h3>Harjoitustesi kesto</h3>
 <?php
 $data1['email'] = $_SESSION['semail'];
 $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
@@ -22,25 +27,26 @@ $tulos1=$kysely1->fetch();
 $currentpersonalID=$tulos1[0];
 
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$sql = "SELECT kesto, vaikeus, paiva, kommentti FROM toteutetutHarjoitukset WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
 echo("<table>
 <tr>
-  <th>Päivän fiilis</th>
-  <th>Kahvikuppien määrä</th>
-  <th>Alkoholiannosten määrä</th>
-  <th>Unen määrä</th>
-  <th>Unen laatu</th>
+  <th>Harjoitusten kesto</th>
+  <th>Harjoituksen päivämäärä</th>
+  <th>Harjoituksen vaikeus</th>
+  <th>Omat kommentit</th>
+  
   </tr>");
 
   while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["paivanFiilis"]."</td>
-    <td>".$row["kofeiini"]."</td>
-    <td>".$row["alkoholi"]."</td>
-    <td>".$row["uni"]."</td>
-    <td>".$row["unenLaatu"]."</td>
+    echo("<tr><td>".$row["kesto"]."</td>
+    <td>".$row["paiva"]."</td>
+    <td>".$row["vaikeus"]."</td>
+    <td>".$row["kommentti"]."</td>
+    
+
     </tr>");
   }
 echo("</table>");
@@ -89,6 +95,7 @@ echo json_encode($paivanAr);
 
 
 <script>
+//Graafi muuttujat
 var trace;
 var trace2;
 var trace3;
@@ -212,7 +219,9 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
 
 </script>
 
-
+<!--
+  Haetaan käyttäjän leposykkeet csv tiedostosta
+  -->
 
 <h2>Tässä käyttäjän leposykkeet</h2>
 <div id = 'leposyke' style="width:85%;height:600px;"></div>

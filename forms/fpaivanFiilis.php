@@ -65,6 +65,7 @@ try{
    VALUES (:paivanFiilis, :kofeiini, :alkoholi, :uni, :uniLaatu, :personalID);");
   $kysely2 = $DBH->prepare($SQL2);
   $kysely2->execute($data2);
+  echo "<script>alert('Päivän tiedot tallennettu');</script>";
 } catch(PDOException $e) {
  file_put_contents('log/DBErrors.txt', 'index.php: '.$e->getMessage()."\n", FILE_APPEND);
  $_SESSION['swarningInput'] = 'Database problem';

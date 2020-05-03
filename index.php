@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<body>
-<link rel="stylesheet" type="text/css" href="./css/modal.css">
+
 <?php
 include('./includes/iheader.php');
 //Lähteenä https://www.w3schools.com/howto/howto_css_modals.asp
 ?>
-
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -45,10 +42,10 @@ include('./includes/iheader.php');
 <!-- Modal content -->
 <div class="modal-content">
 <span class="close">&times;</span>
-<p>Päivän harjoitusohje</p>
-</div>
 
+<p><?php  include('Meditaatio/meditaatioEtusivuHarjoitus.php');?></p>
 </div>
+    </div>
 
 <button id="myBtn2">Päivän fiilis</button>
 
@@ -58,6 +55,7 @@ include('./includes/iheader.php');
 <!-- Modal content -->
 <div class="modal-content">
 <span class="close">&times;</span>
+
 <p><?php include('forms/fpaivanFiilis.php');?></p>
 </div>
 

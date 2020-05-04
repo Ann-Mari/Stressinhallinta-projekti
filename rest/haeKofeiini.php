@@ -22,7 +22,7 @@ $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiil
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
-$paivat = array("Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai");
+$paivat = array(1,2,3,4,5,6,7);
 $paivanKo = array();
 
 

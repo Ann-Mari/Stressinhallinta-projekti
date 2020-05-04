@@ -22,12 +22,9 @@ $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiil
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
-$paivat = array("Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai");
+$paivat = array(1,2,3,4,5,6,7);
 $paivanFi = array();
-$paivanKo = array();
-$paivanAl = array();
-$paivanUn = array();
-$paivanUl = array();
+
 
 
 
@@ -35,7 +32,7 @@ $paivanUl = array();
     $paivanFi[] = $row["paivanFiilis"];
   
 }
-//if($_GET['paivat']==7)
+if($_GET['paivat']==7)
 
   $fiilis = array( 
     "x" => $paivat,

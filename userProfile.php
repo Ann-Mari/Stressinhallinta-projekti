@@ -146,7 +146,7 @@ $kysely3->execute($data3);
 </div>
 
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>
 
 

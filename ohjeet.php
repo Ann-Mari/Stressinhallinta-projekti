@@ -4,5 +4,5 @@ include("includes/inavindex.php");
 ?>
 
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>

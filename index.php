@@ -11,7 +11,9 @@ include('./includes/iheader.php');
 
 <?php
     if(!isset($_SESSION['sloggedIn'])){
-      include('./includes/startnav.php');
+     include('./includes/startnav.php');
+// html validointi epäonnistuu koska validaattori ei osaa sulkea pois tätä koodia, koska ei ole kirjautunut sisään
+
     }else{
 ?>
 <?php include('./includes/inavindex.php');?>
@@ -116,9 +118,11 @@ include('./includes/iheader.php');
  }    
 </script>
      
-
+<?php
+}
+?> 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>

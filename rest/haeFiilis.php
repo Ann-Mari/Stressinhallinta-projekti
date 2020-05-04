@@ -22,7 +22,7 @@ $sql = "SELECT paivanFiilis FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
-$paivat = array(1,2,3,4,5,6,7);
+$paivat = array("Päivä 1","Päivä 2","Päivä 3","Päivä 4","Päivä 5","Päivä 6","Päivä 7");
 $paivanFi = array();
 
 

@@ -19,7 +19,7 @@ include('./includes/iheader.php');
 <?php include('./includes/inavindex.php');?>
 
   <div class="container">
-    <div class="row">
+  <div class="row">    
       
   
    <!-- Trigger/Open The Modal -->
@@ -59,13 +59,15 @@ include('./includes/iheader.php');
 <span class="close">&times;</span>
 
 <p><?php include('forms/fpaivanFiilis.php');?></p>
-</div>
 
+</div>
 </div>
 <script>
         // Get the modal
         var modal = document.getElementById("myModal");
+        
         var modal1 = document.getElementById("myModal1");
+        
         var modal2 = document.getElementById("myModal2");
   
        // Get the button that opens the modal
@@ -121,8 +123,7 @@ include('./includes/iheader.php');
 <?php
 }
 ?> 
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<?php
-include("includes/ifooter.php");
-?>
+

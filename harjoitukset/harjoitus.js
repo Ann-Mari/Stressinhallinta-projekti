@@ -16,7 +16,7 @@ element1.addEventListener('click', (evt) => {
                     console.log(i);
                     //Käytetään Polarin alkuperäistä formaattia, 
                     //jossa kaikki on yhden elementin taulukoita
-                    textEka += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
+                    textEka += "<iframe width='80%' height='100%' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
                 }
                 document.getElementById("ajaxText").innerHTML = textEka;
                 document.getElementById("legText").innerHTML = "Kaikki harjoitukset";
@@ -40,7 +40,7 @@ element2.addEventListener('click', (evt) => {
                 console.log(i);
                 //Käytetään Polarin alkuperäistä formaattia, 
                 //jossa kaikki on yhden elementin taulukoita
-                textToinen += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
+                textToinen += "<iframe width='80%' height='100%' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
             }
             document.getElementById("ajaxText").innerHTML = textToinen;
             document.getElementById("legText").innerHTML = "Jooga harjoitukset";
@@ -66,7 +66,7 @@ element3.addEventListener('click', (evt) => {
                     console.log(i);
                     //Käytetään Polarin alkuperäistä formaattia, 
                     //jossa kaikki on yhden elementin taulukoita
-                    textKolmas += "<iframe width='560' height='315' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
+                    textKolmas += "<iframe width='80%' height='100%' src='https://www.youtube.com/embed/" +obj[i] +"' frameborder='0' allowfullscreen></iframe>";
                 }
                 document.getElementById("ajaxText").innerHTML = textKolmas;
                 document.getElementById("legText").innerHTML = "Meditaatio harjoitukset";

@@ -116,9 +116,11 @@ include('./includes/iheader.php');
  }    
 </script>
      
-
+<?php
+}
+?> 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>

@@ -8,5 +8,5 @@ include("includes/iheader.php")
 include("forms/fcreateaccount.php")
 ?>
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>

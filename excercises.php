@@ -31,5 +31,5 @@ include('./includes/inavindex.php');
 </div>
 <script src="harjoitukset/harjoitus.js"></script>
 <?php
-include("includes/footer.php");
+include("includes/ifooter.php");
 ?>

@@ -1,5 +1,5 @@
 <?php
-//Lähteenä: Lab6
+//Lähteenä: Lab6 ja Karin materiaalit
 session_start();
 session_unset();
 session_destroy();

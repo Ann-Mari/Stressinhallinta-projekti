@@ -22,7 +22,6 @@
         <a href="index.php"><li>Etusivu</li></a>
         <a href="userProfile.php"><li>Oma profiili</li></a>
         <a href="userDiary.php"><li>Päiväkirja</li></a>
-        <a href="#"><li>Vie data</li></a>
         <a href="excercises.php"><li>Harjoitusohjeet</li></a>
         <a href="logout.php"><li>Kirjaudu ulos</li></a>
     </ul>

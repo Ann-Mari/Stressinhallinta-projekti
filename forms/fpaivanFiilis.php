@@ -2,20 +2,22 @@
 // lähteenä Lab6 ja Karin materiaalit
 ?>
 
-<fieldset><legend>Päivän Fiili</legend>
+<fieldset><legend>Päivän Fiilis</legend>
           <form method="post">
             <p>
             Päivän fiilis 
             <br />  <label for="fiilis">Päivän Fiilis (min 1 max 10):</label>
-               <input type="number" id="fiilis" name="fiilis" min="1" max="Salasana 10">
+               <input type="number" id="fiilis" name="fiilis" min="1" max="10">
             </p><p>
 
               <label for="kahvi">Kuinka monta kuppia joit kahvia (between 0 and 10):</label>
-              <input type="range" id="kahvi" name="kahvi" min="0" max="10" step="1">
+              <input type="range" id="kahvi" name="kahvi" min="0" max="10" step="1" oninput="this.form.amountInputK.value=this.value">
+              <input type="number" id="amountInputK" name="amountInputK" min="0" max="10"  oninput="this.form.kahvi.value=this.value">
             </p><p>
 
               <label for="alkoholi">Kuinka monta annosta alkoholia nautit (between 0 and 15):</label>
-              <input type="range" id="alkoholi" name="alkoholi" min="0" max="15" step="1">
+              <input type="range" id="alkoholi" name="alkoholi" min="0" max="15" step="1" oninput="this.form.amountInputA.value=this.value">
+              <input type="number" id="amountInputA" name="amountInputA" min="0" max="10"  oninput="this.form.alkoholi.value=this.value">
             </p><p>
             
               <label for="nukkumaan">Kuinka pitkään nukuit?:</label>
@@ -23,7 +25,8 @@
 
             </p><p>
             <label for="uniLaatu">Miten hyvin nukuit?(1-10):</label>
-              <input type="range" id="uniLaatu" name="uniLaatu" min="0" max="10" step="1">
+              <input type="range" id="uniLaatu" name="uniLaatu" min="0" max="10" step="1" oninput="this.form.amountInputU.value=this.value">
+              <input type="number" id="amountInputU" name="amountInputU" min="0" max="10"  oninput="this.form.uniLaatu.value=this.value">
 
             </p><p>
             <br />  <input type="submit" name="submitFiilis" value="Hyväksy"/>

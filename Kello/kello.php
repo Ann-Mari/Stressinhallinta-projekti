@@ -17,12 +17,14 @@
   </div>
 <div id="reset" class="resetTimer reset clear" onclick="resetTimer()">Tyhjennä</div>
 <!--<div id="save" class="saveExercise reset" onclick="saveExercise()">Tallenna</div>-->
-<div id ="manuaalinen"><fieldset><legend>Keston manuaalinen syöttö</legend>
+<br>
+<br>
+<div id ="manuaalinen"><fieldset style="float:left; margin-top:2%;" ><legend>Keston manuaalinen syöttö</legend>
 <form method="post">
 <p>Kuinka kauan harjoittelit?</p>
 <label for="kesto">Harjouituksen kesto minuutteina:</label>
                
-               <input id="kesto" name="kesto" type="number" min="0" max="100">
+               <input id="kesto" name="kesto" type="number" min="0" max="100" placeholder="min">
                 <input type="date" name="paiva" id="paiva">
                 <select name="vaikeus" id="vaikeus">
   <option value="1">Super helppo</option>
@@ -31,7 +33,7 @@
   <option value="4">Vaikea</option>
   <option value="5">Super vaikea</option>
         </select>
-        <input type="text" name="kommentti" id="kommentti">
+        <input type="text" name="kommentti" id="kommentti" placeholder="Omat kommentit">
                <p>
             <br />  <input type="submit" name="submitAika" value="Hyväksy"/>
                     <input type="reset"  value="Tyhjennä"/>

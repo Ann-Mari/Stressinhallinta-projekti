@@ -19,6 +19,8 @@ include('./includes/inavindex.php');
 
 <h3>Harjoitustesi kesto</h3>
 <?php
+
+//Haetaan käyttäjän sähköpostin avulla käyttäjän id ja haetaan id:n mukaan kaikki tiedot.
 $data1['email'] = $_SESSION['semail'];
 $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
 $kysely1=$DBH->prepare($sql1);
@@ -27,7 +29,8 @@ $tulos1=$kysely1->fetch();
 $currentpersonalID=$tulos1[0];
 
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT kesto, vaikeus, paiva, kommentti FROM toteutetutHarjoitukset WHERE personalID = :personalID";
+$sql = "SELECT kesto, vaikeus, paiva, kommentti FROM toteutetutHarjoitukset WHERE personalID = :personalID
+ORDER BY toteutetutHarjoituksetID DESC LIMIT 10";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 

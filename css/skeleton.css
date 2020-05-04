@@ -35,6 +35,11 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  /*margin-bottom: -50px;*/
  }
 .column,
 .columns {
@@ -303,12 +308,13 @@ ______________________________*/
   display: block;
   position: relative;
   top: 50px;
-  left: 50px;
+  left: 1em;
   
   z-index: 1;
   
   -webkit-user-select: none;
   user-select: none;
+  width: 5%;
 }
 
 #menuToggle a
@@ -445,30 +451,6 @@ Muut divit
 -------------------------------------------------- */
 
 
-.footer{
-
-  margin-left: 0%;
-  margin-right: 0%;
-  margin-bottom: 0%;
-  padding-right: 0%;
-  padding-left: 0%;
-  background-color: #FFC9C4;
-
-}
-
-.wrapperF {
-  min-height: 100%;
-
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -50px;
-}
-.footer,
-.push {
-  height: 50px;
-}
-
-
 
 
 
@@ -533,7 +515,7 @@ input,
 textarea,
 select,
 fieldset {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1rem; }
 pre,
 blockquote,
 dl,

@@ -64,32 +64,6 @@ echo("</table>");
 
 
 
-<?php
-/*
-$data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
-$kysely = $DBH->prepare($sql);
-$kysely->execute($data2);
-
-$paivanAr= array();
-$kofeiiniAr = array();
-
-//$paivat = array("1","2","4","5","6","7");
-
-
-  while ($row=$kysely->fetch()){
-    $paivanAr[] = $row["paivanFiilis"];
-    //$row["kofeiini"].
-   // $row["alkoholi"].
-    //$row["uni"].
-    //$row["unenLaatu"]
-  }
-
-
-echo json_encode($paivanAr);
-
-*/
-?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 

@@ -6,7 +6,7 @@ include('./includes/inavindex.php');
 ?>
 
 <?php
-//include_once("harjoituset/functions.php");
+
 ?>
 <br>
 <br>

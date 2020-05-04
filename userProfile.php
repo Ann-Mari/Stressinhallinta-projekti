@@ -112,7 +112,7 @@ echo "Tietoja ei pystytty päivittämään";
 if(isset($_SESSION['swarningInput'])){
   echo("<h2>".$_SESSION['swarningInput']."</h2>");
 }
-/*
+
 $data3['userpersonalID'] = $currentpersonalID;
 $sql3 = "SELECT userAge, userGender, userHeight, userWeight, userStresslevel, userBackground, userGeneral_condition FROM Personal
  WHERE userpersonalID = :userpersonalID";
@@ -141,7 +141,7 @@ $kysely3->execute($data3);
         }
     
   echo("</table>");
-  */
+  
 ?>
 </div>
 

@@ -80,7 +80,7 @@ var trace4;
 var trace5;
 
 
-fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+fetch('rest/haeFiilis.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 .then((response) => {
             return response.json();
         })
@@ -152,8 +152,10 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 <!--
   Haetaan käyttäjän leposykkeet csv tiedostosta
   -->
-
-<h2>Tässä käyttäjän leposykkeet</h2>
+<br>
+<br>
+<br>
+<h5>Leposykkeen kehitys viimeisen kuukauden aikana</h5>
 <div id = 'leposyke' style="width:85%;height:600px;"></div>
 <script>
 

@@ -17,7 +17,6 @@ include('./includes/inavindex.php');
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
 </fieldset>
-<div class="videoWrapper">
 <fieldset><legend id="legText"></legend>
 <p>
   <div id ="ajaxText">
@@ -27,7 +26,7 @@ include('./includes/inavindex.php');
 
 
 
-</div>
+
 </div>
 </div>
 <script src="harjoitukset/harjoitus.js"></script>

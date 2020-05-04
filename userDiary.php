@@ -188,5 +188,6 @@ function makePlotly( x, y, standard_deviation ){
 </script>
   </div>
 </main>
-</body>
-</html>
+<?php
+include("includes/footer.php");
+?>

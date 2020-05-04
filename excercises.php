@@ -29,6 +29,7 @@ include('./includes/inavindex.php');
 
 </div>
 </div>
-</body>
 <script src="harjoitukset/harjoitus.js"></script>
-</html>
+<?php
+include("includes/footer.php");
+?>

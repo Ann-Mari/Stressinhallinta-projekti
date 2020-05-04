@@ -75,5 +75,7 @@ if(isset($_SESSION['swarningInput'])){
   echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
 }
 ?>
-</body>
 </div>
+<?php
+include("includes/footer.php");
+?>

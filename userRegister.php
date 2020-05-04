@@ -7,5 +7,6 @@ include("includes/iheader.php")
 <?php
 include("forms/fcreateaccount.php")
 ?>
-</body>
-</html>
+<?php
+include("includes/footer.php");
+?>

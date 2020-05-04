@@ -145,11 +145,8 @@ $kysely3->execute($data3);
 ?>
 </div>
 
-
-
-</body>
-
-</html>
-
+<?php
+include("includes/footer.php");
+?>
 
 

@@ -1,3 +1,9 @@
+:root {
+  --tumma:#37644b;
+  --vaalea: rgb(74, 129, 98);
+  --tosivaalea:#66B388;
+}
+
 #timerContainer {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -5,6 +11,7 @@
     margin:20px auto;
     min-height: 60px;
     border-top:0px;
+    float: left;
   }
   .timer, .reset {
     float:left;
@@ -12,21 +19,23 @@
     padding: 20px 0;
     font-size: 24px;
     text-align:center;
-    color: #fff;
-    background:#66B388;
+    color: white;
+    background:var(--tosivaalea);
     cursor: pointer
   }
   .reset {
-    background:rgb(55, 100, 75);
+    background:var(--tumma);
     color: white;
+
     width:20%;
     border-left: 1px solid rgb(55, 100, 75);
   }
   .reset:hover {
-    background:rgb(74, 129, 98);
+    background:var(--vaalea);
   }
   .lighter {
-    background: rgb(74, 129, 98);
+    background: var(--vaalea);
+
   }
   .clear{
     clear:both;

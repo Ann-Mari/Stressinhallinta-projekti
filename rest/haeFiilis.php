@@ -18,25 +18,28 @@ include("../config/config.php");
 
 //Hetaan käyttäjän tilastoja
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT kofeiini FROM Paivan_Fiilis WHERE personalID = :personalID";
+$sql = "SELECT paivanFiilis FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
 $paivat = array(1,2,3,4,5,6,7);
-$paivanKo = array();
+$paivanFi = array();
 
 
-while ($row=$kysely->fetch()){
-    $paivanKo[] = $row["koefeiini"];
 
+
+ while ($row=$kysely->fetch()){
+    $paivanFi[] = $row["paivanFiilis"];
+  
 }
+if($_GET['paivat']==7)
 
-$Pkofeiini = array( 
+  $fiilis = array( 
     "x" => $paivat,
-    "y" => $paivanKo,
+    "y" => $paivanFi,
     "type" => "scatter",
-    "name" => 'Kahvin määrä'  
-);
-echo(json_encode($Pkofeiini));
+    "name" => 'Päivän fiilis'  
+  ); 
+  echo(json_encode($fiilis));
 
 ?>

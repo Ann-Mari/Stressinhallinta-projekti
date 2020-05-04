@@ -6,7 +6,7 @@ include('./includes/inavindex.php');
 ?>
 
 <?php
-//include_once("harjoituset/functions.php");
+
 ?>
 <br>
 <br>
@@ -17,7 +17,6 @@ include('./includes/inavindex.php');
 <button type="button" id="btnJooga">Näytä jooga-harjoitukset</button>
 <button type="button" id="btnMeditaatio">Näytä meditaatio-harjoitukset</button>
 </fieldset>
-
 <fieldset><legend id="legText"></legend>
 <p>
   <div id ="ajaxText">
@@ -27,8 +26,10 @@ include('./includes/inavindex.php');
 
 
 
+
 </div>
 </div>
-</body>
 <script src="harjoitukset/harjoitus.js"></script>
-</html>
+<?php
+include("includes/ifooter.php");
+?>

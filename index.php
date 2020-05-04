@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<body>
-<link rel="stylesheet" type="text/css" href="./css/modal.css">
+
 <?php
 include('./includes/iheader.php');
 //Lähteenä https://www.w3schools.com/howto/howto_css_modals.asp
 ?>
-
+<link rel="stylesheet" type="text/css" href="./css/modal.css">
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -14,13 +11,15 @@ include('./includes/iheader.php');
 
 <?php
     if(!isset($_SESSION['sloggedIn'])){
-      include('./includes/startnav.php');
+     include('./includes/startnav.php');
+// html validointi epäonnistuu koska validaattori ei osaa sulkea pois tätä koodia, koska ei ole kirjautunut sisään
+
     }else{
 ?>
 <?php include('./includes/inavindex.php');?>
 
   <div class="container">
-    <div class="row">
+  <div class="row">    
       
   
    <!-- Trigger/Open The Modal -->
@@ -37,7 +36,7 @@ include('./includes/iheader.php');
 
 </div>
 
-<button id="myBtn1">Päivän harjoitus ohje</button>
+<button id="myBtn1">Päivän harjoitusohje</button>
 
 <!-- The Modal -->
 <div id="myModal1" class="modal">
@@ -45,10 +44,10 @@ include('./includes/iheader.php');
 <!-- Modal content -->
 <div class="modal-content">
 <span class="close">&times;</span>
-<p>Päivän harjoitusohje</p>
-</div>
 
+<p><?php  include('Meditaatio/meditaatioEtusivuHarjoitus.php');?></p>
 </div>
+    </div>
 
 <button id="myBtn2">Päivän fiilis</button>
 
@@ -58,14 +57,17 @@ include('./includes/iheader.php');
 <!-- Modal content -->
 <div class="modal-content">
 <span class="close">&times;</span>
-<p><?php include('forms/fpaivanFiilis.php');?></p>
-</div>
 
+<p><?php include('forms/fpaivanFiilis.php');?></p>
+
+</div>
 </div>
 <script>
         // Get the modal
         var modal = document.getElementById("myModal");
+        
         var modal1 = document.getElementById("myModal1");
+        
         var modal2 = document.getElementById("myModal2");
   
        // Get the button that opens the modal
@@ -117,37 +119,11 @@ include('./includes/iheader.php');
     }
  }    
 </script>
-     <!-- 
-      <div id="kello">
-          Tähän tulee sekunttikello lopullisessa versiossa, nyt vain <a href="Kello/kello.php">linkki</a> kellon nykyiseen toiminnallisuuteen.
-          <?php
-          //include('Kello/kello.php');
-          ?>
-      </div>
-      <div id="paivanHarjoitukset">
-          Tähän tulee lopullisessa versiossa arvottu harjoitus ennalta määrätyistä harjoituksista.
-          <?php
-         // include("Meditaatio/meditaatioEtusivuHarjoitus.php");
-          ?>
-      </div>
-      <div id="paivanFiilis">
-        Tähän tulee toiminnallisuus päivän fiiliksestä. Ensimmäisessä näkymässä kysytään numeraalinen arvo päivän fiiliksestä.
-        Kun tämä arvo on annettu käyttäjältä kysytään nautitun kofeiinin määrä, nautitun alkoholin määrä sekä nukutut tunnit
-        Lähtökohtana lomake:
-
-        <?php
-        //haetaan tehty lomake forms kansiosta
-        //include('forms/fpaivanFiilis.php');
-        ?>
-        </div>
-      </div>
-    </div>
-  </div> 
+     
+<?php
+}
+?> 
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-</html>
-<?php
-}
-?>
+

@@ -56,7 +56,7 @@ if(isset($_POST['submitUser'])){
 
 }
 if(isset($_SESSION['swarningInput'])){
-    echo("<h2>".$_SESSION['swarningInput']."</h2>");
+    echo("<h4>".$_SESSION['swarningInput']."</h4>");
 }
 ?>
 
@@ -69,11 +69,7 @@ if(isset($_POST['submitBack'])){
 }
 ?>
 
-<?php
-  //Näytetäänkö lomakesyötteen aiheuttama varoitus?
-if(isset($_SESSION['swarningInput'])){
-  echo("<p class=\"warning\">Väärä syöte: ". $_SESSION['swarningInput']."</p>");
-}
-?>
-</body>
 </div>
+<?php
+include("includes/ifooter.php");
+?>

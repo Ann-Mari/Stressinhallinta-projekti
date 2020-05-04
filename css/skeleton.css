@@ -35,6 +35,11 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  /*margin-bottom: -50px;*/
  }
 .column,
 .columns {
@@ -120,17 +125,21 @@
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+ }
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; 
-  background-color: rgba(255, 225, 222, 0.5);
+  background-color: rgba(255, 227, 224, 0.502);
 }
-
-
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
@@ -299,12 +308,13 @@ ______________________________*/
   display: block;
   position: relative;
   top: 50px;
-  left: 50px;
+  left: 1em;
   
   z-index: 1;
   
   -webkit-user-select: none;
   user-select: none;
+  width: 5%;
 }
 
 #menuToggle a
@@ -445,6 +455,7 @@ Muut divit
 
 
 
+
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
@@ -504,7 +515,7 @@ input,
 textarea,
 select,
 fieldset {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1rem; }
 pre,
 blockquote,
 dl,
@@ -576,3 +587,4 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+

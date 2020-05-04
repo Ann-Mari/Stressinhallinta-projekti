@@ -11,7 +11,7 @@ session_start();
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Stressinhallinta-projekti</title>
+  <title>Katkeamispiste</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -37,3 +37,4 @@ session_start();
 
 </head>
 <body>
+  

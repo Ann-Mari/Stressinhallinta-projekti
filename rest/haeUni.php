@@ -17,12 +17,13 @@ include("../config/config.php");
  $currentpersonalID=$tulos1[0];
 
 
+ //Hetaan käyttäjän tilastoja
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$sql = "SELECT uni FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
-$paivat = array("Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai");
+$paivat = array(1,2,3,4,5,6,7);
 $paivanUn = array();
 
 

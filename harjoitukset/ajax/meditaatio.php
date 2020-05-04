@@ -6,5 +6,12 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
  
-echo(json_encode("hei!"));
+$meditaatioHarjoitukset =
+'[
+"BFub-V365iI",
+"1qiV2RX5UwU",
+"-q9diKKQ-SU" 
+]';
+
+echo(json_encode($meditaatioHarjoitukset));
 ?>

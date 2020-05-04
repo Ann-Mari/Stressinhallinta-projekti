@@ -11,9 +11,16 @@ include('./includes/inavindex.php');
 
 <div class ="container">
 
-<h2>Käyttäjän tilastot</h2>
-<p>Tällä hetkellä tulostaa vielä kaikkien käyttäjien tulokset, tulossa yksilöllinen taulukko joka yhdistetään graafiin</p>
+<h2>Päiväkirja</h2>
+<br>
+<br>
+<br>
+
+
+<h3>Harjoitustesi kesto</h3>
 <?php
+
+//Haetaan käyttäjän sähköpostin avulla käyttäjän id ja haetaan id:n mukaan kaikki tiedot.
 $data1['email'] = $_SESSION['semail'];
 $sql1 = "SELECT personalID FROM userRegister where userEmail  =  :email";
 $kysely1=$DBH->prepare($sql1);
@@ -22,25 +29,27 @@ $tulos1=$kysely1->fetch();
 $currentpersonalID=$tulos1[0];
 
 $data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
+$sql = "SELECT kesto, vaikeus, paiva, kommentti FROM toteutetutHarjoitukset WHERE personalID = :personalID
+ORDER BY toteutetutHarjoituksetID DESC LIMIT 10";
 $kysely = $DBH->prepare($sql);
 $kysely->execute($data2);
 
 echo("<table>
 <tr>
-  <th>Päivän fiilis</th>
-  <th>Kahvikuppien määrä</th>
-  <th>Alkoholiannosten määrä</th>
-  <th>Unen määrä</th>
-  <th>Unen laatu</th>
+  <th>Harjoitusten kesto minuutteina</th>
+  <th>Harjoituksen päivämäärä</th>
+  <th>Harjoituksen vaikeus</th>
+  <th>Omat kommentit</th>
+  
   </tr>");
 
   while ($row=$kysely->fetch()){
-    echo("<tr><td>".$row["paivanFiilis"]."</td>
-    <td>".$row["kofeiini"]."</td>
-    <td>".$row["alkoholi"]."</td>
-    <td>".$row["uni"]."</td>
-    <td>".$row["unenLaatu"]."</td>
+    echo("<tr><td>".$row["kesto"]."</td>
+    <td>".$row["paiva"]."</td>
+    <td>".$row["vaikeus"]."</td>
+    <td>".$row["kommentti"]."</td>
+    
+
     </tr>");
   }
 echo("</table>");
@@ -58,37 +67,12 @@ echo("</table>");
 
 
 
-<?php
-
-$data2['personalID'] = $currentpersonalID;
-$sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
-$kysely = $DBH->prepare($sql);
-$kysely->execute($data2);
-
-$paivanAr= array();
-$kofeiiniAr = array();
-
-//$paivat = array("1","2","4","5","6","7");
-
-
-  while ($row=$kysely->fetch()){
-    $paivanAr[] = $row["paivanFiilis"];
-    //$row["kofeiini"].
-   // $row["alkoholi"].
-    //$row["uni"].
-    //$row["unenLaatu"]
-  }
-
-
-echo json_encode($paivanAr);
-
-
-?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
 
 
 <script>
+//Graafi muuttujat
 var trace;
 var trace2;
 var trace3;
@@ -96,7 +80,7 @@ var trace4;
 var trace5;
 
 
-fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
+fetch('rest/haeFiilis.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 .then((response) => {
             return response.json();
         })
@@ -148,49 +132,6 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 
-       /*
-      var trace = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [5,8,9,6,5,4,4],
-        type: 'scatter',
-        name: 'Päivän fiilis'
-        
-      };
-console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
-
-
-      var trace2 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [4, 6, 4, 3, 2, 2, 4],
-        type: 'scatter',
-        name: 'Kahvikuppien määrä'
-        
-      };
-
-      var trace3 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [0, 1, 0, 2, 4, 12, 0],
-        type: 'scatter',
-        name: 'Alkoholiannosten määrä'
-        
-      };
-
-      var trace4 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [5, 7, 8, 9, 7, 8, 3],
-        type: 'scatter',
-        name: 'Unen laatu'
-        
-      };
-
-      var trace5 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [8, 7, 8, 8, 9, 8, 4],
-        type: 'bar',
-        name: 'Unen määrä (h)'
-        
-      };
-*/
 
       var data = [trace, trace2, trace3, trace4, trace5];
 
@@ -206,15 +147,15 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
   });
 });
             
-    
-            
-   
-
 </script>
 
-
-
-<h2>Tässä käyttäjän leposykkeet</h2>
+<!--
+  Haetaan käyttäjän leposykkeet csv tiedostosta
+  -->
+<br>
+<br>
+<br>
+<h5>Leposykkeen kehitys viimeisen kuukauden aikana</h5>
 <div id = 'leposyke' style="width:85%;height:600px;"></div>
 <script>
 
@@ -252,5 +193,6 @@ function makePlotly( x, y, standard_deviation ){
 </script>
   </div>
 </main>
-</body>
-</html>
+<?php
+include("includes/ifooter.php");
+?>

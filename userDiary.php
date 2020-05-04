@@ -33,7 +33,7 @@ $kysely->execute($data2);
 
 echo("<table>
 <tr>
-  <th>Harjoitusten kesto</th>
+  <th>Harjoitusten kesto minuutteina</th>
   <th>Harjoituksen päivämäärä</th>
   <th>Harjoituksen vaikeus</th>
   <th>Omat kommentit</th>

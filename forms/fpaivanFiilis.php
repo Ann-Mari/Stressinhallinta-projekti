@@ -17,7 +17,7 @@
 
               <label for="alkoholi">Kuinka monta annosta alkoholia nautit (between 0 and 15):</label>
               <input type="range" id="alkoholi" name="alkoholi" min="0" max="15" step="1" oninput="this.form.amountInputA.value=this.value">
-              <input type="number" id="amountInputA" name="amountInputA" min="0" max="10"  oninput="this.form.alkoholi.value=this.value">
+              <input type="number" id="amountInputA" name="amountInputA" min="0" max="15"  oninput="this.form.alkoholi.value=this.value">
             </p><p>
             
               <label for="nukkumaan">Kuinka pitkään nukuit?:</label>

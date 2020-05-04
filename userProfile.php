@@ -19,46 +19,6 @@ include('./includes/inavindex.php');
 //kopioitiin fcreateaccount.php profiilin lomakkeen pohjaksi, sitä voi ruveta siitä sitten muuttamaan,
 //hakemaan tietokannasta annetut arvot ja antaa käyttäjän muuttaa haluamiaan arvoja.
 ?>
-<?php
-//Haetaan käyttäjän sähköpostin avulla käyttäjän id ja haetaan id:n mukaan kaikki tiedot.
-
-   $data1['email'] = $_SESSION['semail'];
-   $sql1 = "SELECT personalID FROM userRegister where userEmail =  :email";
-   $kysely1=$DBH->prepare($sql1);
-   $kysely1->execute($data1);
-   $tulos1=$kysely1->fetch();
-   $currentpersonalID=$tulos1[0];
-
-$data3['userpersonalID'] = $currentpersonalID;
-$sql3 = "SELECT userAge, userGender, userHeight, userWeight, userStresslevel, userBackground, userGeneral_condition FROM Personal
- WHERE userpersonalID = :userpersonalID";
-$kysely3=$DBH->prepare($sql3);
-$kysely3->execute($data3);                
-
-    echo("<table>
-         <tr>
-            <th>Ikä</th>
-      <th>Sukupuoli</th>
-      <th>Pituus</th>
-      <th>Paino</th>
-      <th>Stressitaso</th>
-      <th>Taustaa</th>
-      <th>Kuntotaso</th>
-        </tr>");
-    
-        while    ($row=$kysely3->fetch()){    
-                echo("<tr><td>".$row["userAge"]."</td>
-                <td>".$row["userGender"]."</td>
-                <td>".$row["userHeight"]."</td>
-                <td>".$row["userWeight"]."</td>
-                <td>".$row["userStresslevel"]."</td>
-                <td>".$row["userBackground"]."</td>
-                <td>".$row["userGeneral_condition"]."</td></tr>");
-        }
-    
-  echo("</table>");
-  
-?>
 
 <div>Tässä voi muuttaa oman profiilin tietoja</div>
 <form method="post">

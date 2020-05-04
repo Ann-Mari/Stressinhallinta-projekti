@@ -61,9 +61,8 @@ echo("</table>");
 <br>
 
 
-<p>Tämä on sinun päiväkirjasi</p>
+<h5>Tästä pystyt seuraamaan päivittäisiä tilastojasi, kuvaaja näyttää viimeiseltä 7 päivältä tilastot</h5>
 
-<p>Tähän tulee päiväkirja tilastoja Graafeja, jotka saavat tietonsa tietokannasta. Graafien piirtämiseen käytetään plotlyä.</p>
 
 
 

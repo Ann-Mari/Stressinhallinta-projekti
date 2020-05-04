@@ -7,7 +7,8 @@ include("./config/config.php");
 Test</title>
 
 </head>
-
+<div class="videoWrapper">
+ 
 <?php
 /*Jos sessiomuuttujaa ei ole käynnistetään pvHarjoitus joka randomisoi numeron
 *Randomisoidulla numerolla valitaan kyseisen session harjoitus
@@ -47,7 +48,7 @@ function pvHarjoitus() {
   //)
   
   
-  echo "<iframe id='video' width='75%' height='50%'  src='https://www.youtube.com/embed/$harjoitus' frameborder='0' allowfullscreen></iframe>";
+  echo "<iframe id='video' width='560' height='349'  src='https://www.youtube.com/embed/$harjoitus' frameborder='0' allowfullscreen></iframe>";
 }
 
 pvHarjoitus();  
@@ -74,4 +75,4 @@ pvHarjoitus();
 //}
 ?>
 
-
+</div>

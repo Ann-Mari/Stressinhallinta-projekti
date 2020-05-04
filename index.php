@@ -36,7 +36,7 @@ include('./includes/iheader.php');
 
 </div>
 
-<button id="myBtn1">Päivän harjoitus ohje</button>
+<button id="myBtn1">Päivän harjoitusohje</button>
 
 <!-- The Modal -->
 <div id="myModal1" class="modal">

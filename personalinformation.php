@@ -115,4 +115,6 @@ if(isset($_SESSION['swarningInput'])){
   
 ?>
 </div>
-</body>
+<?php
+include("includes/footer.php");
+?>

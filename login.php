@@ -66,3 +66,7 @@ if(isset($_SESSION['swarningInput'])){
 }
 ?>
 </div>
+
+<?php
+include("includes/footer.php");
+?>

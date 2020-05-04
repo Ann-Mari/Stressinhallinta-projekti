@@ -65,7 +65,7 @@ echo("</table>");
 
 
 <?php
-
+/*
 $data2['personalID'] = $currentpersonalID;
 $sql = "SELECT paivanFiilis, kofeiini, alkoholi, uni, unenLaatu FROM Paivan_Fiilis WHERE personalID = :personalID";
 $kysely = $DBH->prepare($sql);
@@ -88,7 +88,7 @@ $kofeiiniAr = array();
 
 echo json_encode($paivanAr);
 
-
+*/
 ?>
 
 <div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
@@ -155,49 +155,6 @@ fetch('rest/haeData.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 
             //TÄHÄN TULEE TUO KAIKKI JAVASCRIPT ploty
 
-       /*
-      var trace = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [5,8,9,6,5,4,4],
-        type: 'scatter',
-        name: 'Päivän fiilis'
-        
-      };
-console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
-
-
-      var trace2 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [4, 6, 4, 3, 2, 2, 4],
-        type: 'scatter',
-        name: 'Kahvikuppien määrä'
-        
-      };
-
-      var trace3 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [0, 1, 0, 2, 4, 12, 0],
-        type: 'scatter',
-        name: 'Alkoholiannosten määrä'
-        
-      };
-
-      var trace4 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [5, 7, 8, 9, 7, 8, 3],
-        type: 'scatter',
-        name: 'Unen laatu'
-        
-      };
-
-      var trace5 = {
-        x: ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
-        y: [8, 7, 8, 8, 9, 8, 4],
-        type: 'bar',
-        name: 'Unen määrä (h)'
-        
-      };
-*/
 
       var data = [trace, trace2, trace3, trace4, trace5];
 
@@ -213,10 +170,6 @@ console.log("Päivän fiilis break: \n" + JSON.stringify(trace,undefined,2));
   });
 });
             
-    
-            
-   
-
 </script>
 
 <!--

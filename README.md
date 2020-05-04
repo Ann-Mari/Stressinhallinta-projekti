@@ -1,4 +1,4 @@
-# Stressinhallinta-projekti
+# Katkeamispiste
 
 Erika Lepistö, Joona Korhonen ja Ann-Mari Räsänen
 

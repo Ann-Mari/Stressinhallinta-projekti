@@ -122,12 +122,12 @@ $kysely3->execute($data3);
     echo("<table>
          <tr>
             <th>Ikä</th>
-      <th>sukupuoli</th>
-      <th>pituus</th>
-      <th>paino</th>
+      <th>Sukupuoli</th>
+      <th>Pituus</th>
+      <th>Paino</th>
       <th>Stressitaso</th>
-      <th>taustaa</th>
-      <th>kuntotaso</th>
+      <th>Taustaa</th>
+      <th>Kuntotaso</th>
         </tr>");
     
         while    ($row=$kysely3->fetch()){    

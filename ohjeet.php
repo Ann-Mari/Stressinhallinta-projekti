@@ -3,7 +3,7 @@ include("includes/iheader.php");
 include("includes/inavindex.php");
 ?>
 <div class="container">
-<h5>Ohjeet</h5>
+<h4>Yleistietoa</h4>
 <br>
 <p>Tämän web-sovelluksen tarkoituksena on toimia apuvälineenä hyvinvoinnissa</p>
 <br>
@@ -45,17 +45,17 @@ päiväkirjan, harjoitusohjeen, yleiset tiedot ja kirjaudu ulos painikkeen.</p>
 <br><br>
 <h5>Harjoitussivu:</h5>
 <br>
-<p>Harjoitussivulta löydät meditaatio ja jooga harjoituksia. Voit valita niistä mieleisesi ja toteuttaa harjoituksen omalla ajallasi. </p>
-
+<p>Harjoitussivulta löydät meditaatio- ja joogaharjoituksia. Voit valita niistä mieleisesi ja toteuttaa harjoituksen omalla ajallasi. </p>
+<br><br>
 <h4>Tietoa stressistä:</h4>
 
-<br><br>
+<br>
 
 <h5>Uni</h5>
 <br>
 <p>Stressi voi aiheuttaa unettomuutta ja pitkään jatkunut unettomuus voi myös aiheuttaa stressiä.
  Stressi vaikuttaa haitallisesti unen laatuun lisäämällä stressihormonien kasvua ja sitä kautta nostaa vireystasoa.
- Unen laatua voi parantaa vähentämällä kahvin ja alkoholin kulutusta sekä lisäämällä liikuntaa elämän tapoihinsa.</p>
+ Unen laatua voi parantaa vähentämällä kahvin ja alkoholin kulutusta sekä lisäämällä liikuntaa elämäntapoihinsa.</p>
  <br>
  <br>
  <h5>Liikunta</h5>

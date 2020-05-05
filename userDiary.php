@@ -67,7 +67,7 @@ echo("</table>");
 
 
 
-<div id='Kahvin ja alkoholin määrä' style="width:85%;height:600px;"></div>
+<div id='Kahvin ja alkoholin määrä' style="width:85%;"></div>
 
 
 <script>
@@ -134,11 +134,13 @@ fetch('rest/haeFiilis.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 
       var data = [trace, trace2, trace3, trace4, trace5];
 
+      var config1 = {responsive: true}
+
       var layout ={
         title: 'Kahvi, alkoholi ja uni'
       };
 
-      Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout); "json"; //piirretään graafi, data on kaikki piirrokset, layout on nimi
+      Plotly.newPlot('Kahvin ja alkoholin määrä', data, layout, config1); "json"; //piirretään graafi, data on kaikki piirrokset, layout on nimi
 
     });       
     });
@@ -155,7 +157,7 @@ fetch('rest/haeFiilis.php/?paivat=' + 7)  //7 viimeistä päivää oletuksena
 <br>
 <br>
 <h5>Leposykkeen kehitys viimeisen kuukauden aikana</h5>
-<div id = 'leposyke' style="width:85%;height:600px;"></div>
+<div id = 'leposyke' style="width:85%;"></div>
 <script>
 
 function makeplot() {
@@ -184,7 +186,9 @@ function makePlotly( x, y, standard_deviation ){
     y: y
   }];
 
-  Plotly.newPlot('leposyke', traces,
+  var config1 = {responsive: true}
+
+  Plotly.newPlot('leposyke', traces, config1,
     {title: 'Leposyke data csv tiedostosta'});
 };
   makeplot();
